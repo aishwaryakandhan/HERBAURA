@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HERBAURA - Shop</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2;
+            color: #292522;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background-color: white;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            color: #4a3428;
+            margin: 0;
+        }
+
+        header p {
+            color: #6b584a;
+            margin: 5px 0 0;
+        }
+
+        header button {
+            background-color: #a65d3b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        header button:hover {
+            background-color: #4a3428;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            background-color: #4a3428;
+            padding: 14px 6%;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #f5d6c8;
+        }
+
+        /* ================= SHOP TITLE ================= */
+
+        .shop-title {
+            text-align: center;
+            margin: 35px 0 10px;
+            color: #4a3428;
+        }
+
+        .shop-subtitle {
+            text-align: center;
+            color: #6b584a;
+            margin-bottom: 30px;
+        }
+
+        /* ================= CATEGORY TITLE ================= */
+
+        .category-title {
+            color: #4a3428;
+            margin: 35px 6% 20px;
+            border-left: 5px solid #a65d3b;
+            padding-left: 10px;
+        }
+
+        /* ================= PRODUCT CONTAINER ================= */
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 0 6%;
+        }
+
+        /* ================= PRODUCT CARD ================= */
+
+        .product-card {
+            background-color: white;
+            width: 220px;
+            padding: 15px;
+            border-radius: 12px;
+
+            box-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.08);
+
+            text-align: left;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ================= PRODUCT LINK ================= */
+
+        .product-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-link img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .product-link h3 {
+            color: #4a3428;
+            cursor: pointer;
+            margin: 12px 0 8px;
+        }
+
+        .product-link:hover h3 {
+            color: #a65d3b;
+        }
+
+        /* ================= PRICE ================= */
+
+        .price {
+            color: #a65d3b;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* ================= WISHLIST ================= */
+
+        .wishlist-btn {
+            position: absolute;
+
+            top: 20px;
+            right: 20px;
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+            border-radius: 50%;
+
+            background-color: white;
+            color: #777;
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.15);
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            transition: 0.2s;
+        }
+
+        .wishlist-btn:hover {
+            background-color: #f8e5dc;
+            transform: scale(1.08);
+        }
+
+        .wishlist-btn.active {
+            color: red;
+        }
+
+        /* ================= CART BUTTON ================= */
+
+        .cart-btn {
+            width: 100%;
+
+            margin-top: 12px;
+
+            padding: 10px;
+
+            background-color: #a65d3b;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .cart-btn:hover {
+            background-color: #8f4e32;
+        }
+
+        /* ================= BUY NOW BUTTON ================= */
+
+        .buy-btn {
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding: 10px;
+
+            background-color: #4a3428;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .buy-btn:hover {
+            background-color: #a65d3b;
+        }
+
+        /* ================= VIEW ALL ================= */
+
+        .view-all {
+            display: none;
+
+            text-align: center;
+
+            margin: 25px 0;
+        }
+
+        .view-all a {
+            display: inline-block;
+
+            background-color: #a65d3b;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 20px;
+
+            border-radius: 6px;
+        }
+
+        .view-all a:hover {
+            background-color: #4a3428;
+        }
+
+        /* ================= NO PRODUCT ================= */
+
+        .no-product {
+            text-align: center;
+            color: #a65d3b;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 30px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background-color: #4a3428;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 50px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .products {
+                justify-content: center;
+            }
+
+            .product-card {
+                width: 220px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div>
+
+            <h1>
+                HERBAURA
+            </h1>
+
+            <p>
+                Natural • Herbal • Ayurvedic
+            </p>
+
+        </div>
+
+
+        <button onclick="location.href='cart.html'">
+
+            🛒 My Cart
+
+        </button>
+
+    </header>
+
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <a href="website.html">
+            HOME
+        </a>
+
+        <a href="deals.html">
+            DEALS
+        </a>
+
+        <a href="shop.html">
+            SHOP
+        </a>
+
+        <a href="wishlist.html">
+            ♥ WISHLIST
+        </a>
+
+        <a href="cart.html">
+            🛒 MY CART
+        </a>
+
+        <a href="login.html">
+            👤 LOGIN
+        </a>
+
+    </nav>
+
+
+
+    <!-- ================= SHOP TITLE ================= -->
+
+    <h2 class="shop-title">
+        Our Herbal Products
+    </h2>
+
+
+    <p class="shop-subtitle">
+        Explore our natural and Ayurvedic products
+    </p>
+
+
+
+    <!-- ================= VIEW ALL ================= -->
+
+    <div
+        class="view-all"
+        id="viewAll"
+    >
+
+        <a href="shop.html">
+            View All Products
+        </a>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- ====================== SOAPS ======================== -->
+    <!-- ===================================================== -->
+
+    <section
+        class="category-section"
+        data-category="soaps"
+    >
+
+        <h2 class="category-title">
+            🌿 Herbal Soaps
+        </h2>
+
+
+        <div class="products">
+
+
+            <!-- Neem Soap -->
+
+            <div
+                class="product-card"
+                data-category="soaps"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Neem Herbal Soap"
+                    onclick="toggleWishlist(this, 'Neem Herbal Soap', 149, 'neemsoap.jpg/pexels-denissevillar-31517861.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=neemsoap"
+                    class="product-link"
+                >
+
+                    <img
+                        src="neemsoap.jpg/pexels-denissevillar-31517861.jpg"
+                        alt="Neem Herbal Soap"
+                    >
+
+                    <h3>
+                        Neem Herbal Soap
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹149
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Neem Herbal Soap',149,'neemsoap.jpg/pexels-denissevillar-31517861.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Neem Herbal Soap',149,'neemsoap.jpg/pexels-denissevillar-31517861.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Turmeric Soap -->
+
+            <div
+                class="product-card"
+                data-category="soaps"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Turmeric Soap"
+                    onclick="toggleWishlist(this, 'Turmeric Soap', 159, 'turmericsoap.jpg/pexels-andrea-g-glasche-3630046-5775023.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=turmericsoap"
+                    class="product-link"
+                >
+
+                    <img
+                        src="turmericsoap.jpg/pexels-andrea-g-glasche-3630046-5775023.jpg"
+                        alt="Turmeric Soap"
+                    >
+
+                    <h3>
+                        Turmeric Soap
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹159
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Turmeric Soap',159,'turmericsoap.jpg/pexels-andrea-g-glasche-3630046-5775023.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Turmeric Soap',159,'turmericsoap.jpg/pexels-andrea-g-glasche-3630046-5775023.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Aloe Vera Soap -->
+
+            <div
+                class="product-card"
+                data-category="soaps"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Aloe Vera Soap"
+                    onclick="toggleWishlist(this, 'Aloe Vera Soap', 169, 'aloe.jpg/pexels-jibarofoto-14017562.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=aloesoap"
+                    class="product-link"
+                >
+
+                    <img
+                        src="aloe.jpg/pexels-jibarofoto-14017562.jpg"
+                        alt="Aloe Vera Soap"
+                    >
+
+                    <h3>
+                        Aloe Vera Soap
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹169
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Aloe Vera Soap',169,'aloe.jpg/pexels-jibarofoto-14017562.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Aloe Vera Soap',169,'aloe.jpg/pexels-jibarofoto-14017562.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Sandalwood Soap -->
+
+            <div
+                class="product-card"
+                data-category="soaps"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Sandalwood Soap"
+                    onclick="toggleWishlist(this, 'Sandalwood Soap', 179, 'sandal.jpg/pexels-the-design-lady-746806315-31830894.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=sandalwoodsoap"
+                    class="product-link"
+                >
+
+                    <img
+                        src="sandal.jpg/pexels-the-design-lady-746806315-31830894.jpg"
+                        alt="Sandalwood Soap"
+                    >
+
+                    <h3>
+                        Sandalwood Soap
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹179
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Sandalwood Soap',179,'sandal.jpg/pexels-the-design-lady-746806315-31830894.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Sandalwood Soap',179,'sandal.jpg/pexels-the-design-lady-746806315-31830894.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Rose Soap -->
+
+            <div
+                class="product-card"
+                data-category="soaps"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Rose Herbal Soap"
+                    onclick="toggleWishlist(this, 'Rose Herbal Soap', 159, 'rose.jpg/pexels-sydnee-more-30355262-6936985.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=rosesoap"
+                    class="product-link"
+                >
+
+                    <img
+                        src="rose.jpg/pexels-sydnee-more-30355262-6936985.jpg"
+                        alt="Rose Herbal Soap"
+                    >
+
+                    <h3>
+                        Rose Herbal Soap
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹159
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Rose Herbal Soap',159,'rose.jpg/pexels-sydnee-more-30355262-6936985.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Rose Herbal Soap',159,'rose.jpg/pexels-sydnee-more-30355262-6936985.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- ===================== SHAMPOOS ====================== -->
+    <!-- ===================================================== -->
+
+    <section
+        class="category-section"
+        data-category="shampoos"
+    >
+
+        <h2 class="category-title">
+            🌿 Herbal Shampoos
+        </h2>
+
+
+        <div class="products">
+
+
+            <!-- Amla Shampoo -->
+
+            <div
+                class="product-card"
+                data-category="shampoos"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Amla Herbal Shampoo"
+                    onclick="toggleWishlist(this, 'Amla Herbal Shampoo', 249, 'New folder/amla.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=amla-shampoo"
+                    class="product-link"
+                >
+
+                    <img
+                        src="New folder/amla.jpg"
+                        alt="Amla Herbal Shampoo"
+                    >
+
+                    <h3>
+                        Amla Herbal Shampoo
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹249
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Amla Herbal Shampoo',249,'New folder/amla.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Amla Herbal Shampoo',249,'New folder/amla.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Neem Shampoo -->
+
+            <div
+                class="product-card"
+                data-category="shampoos"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Neem Shampoo"
+                    onclick="toggleWishlist(this, 'Neem Shampoo', 269, 'New folder/neemsha.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=neem-shampoo"
+                    class="product-link"
+                >
+
+                    <img
+                        src="New folder/neemsha.jpg"
+                        alt="Neem Shampoo"
+                    >
+
+                    <h3>
+                        Neem Shampoo
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹269
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Neem Shampoo',269,'New folder/neemsha.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Neem Shampoo',269,'New folder/neemsha.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Aloe Vera Shampoo -->
+
+            <div
+                class="product-card"
+                data-category="shampoos"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Aloe Vera Shampoo"
+                    onclick="toggleWishlist(this, 'Aloe Vera Shampoo', 279, 'New folder/aloeshampoo.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=aloe-shampoo"
+                    class="product-link"
+                >
+
+                    <img
+                        src="New folder/aloeshampoo.jpg"
+                        alt="Aloe Vera Shampoo"
+                    >
+
+                    <h3>
+                        Aloe Vera Shampoo
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹279
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Aloe Vera Shampoo',279,'New folder/aloeshampoo.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Aloe Vera Shampoo',279,'New folder/aloeshampoo.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Hibiscus Shampoo -->
+
+            <div
+                class="product-card"
+                data-category="shampoos"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Hibiscus Shampoo"
+                    onclick="toggleWishlist(this, 'Hibiscus Shampoo', 289, 'New folder/hibiscussha.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=hibiscus-shampoo"
+                    class="product-link"
+                >
+
+                    <img
+                        src="New folder/hibiscussha.jpg"
+                        alt="Hibiscus Shampoo"
+                    >
+
+                    <h3>
+                        Hibiscus Shampoo
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹289
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Hibiscus Shampoo',289,'New folder/hibiscussha.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Hibiscus Shampoo',289,'New folder/hibiscussha.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Shikakai Shampoo -->
+
+            <div
+                class="product-card"
+                data-category="shampoos"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Shikakai Shampoo"
+                    onclick="toggleWishlist(this, 'Shikakai Shampoo', 299, 'New folder/sikakai.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=shikakai-shampoo"
+                    class="product-link"
+                >
+
+                    <img
+                        src="New folder/sikakai.jpg"
+                        alt="Shikakai Shampoo"
+                    >
+
+                    <h3>
+                        Shikakai Shampoo
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹299
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Shikakai Shampoo',299,'New folder/sikakai.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Shikakai Shampoo',299,'New folder/sikakai.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- ===================== HAIR OILS ===================== -->
+    <!-- ===================================================== -->
+
+    <section
+        class="category-section"
+        data-category="hairoils"
+    >
+
+        <h2 class="category-title">
+            🌿 Herbal Hair Oils
+        </h2>
+
+
+        <div class="products">
+
+
+            <!-- Coconut Oil -->
+
+            <div
+                class="product-card"
+                data-category="hairoils"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Coconut Hair Oil"
+                    onclick="toggleWishlist(this, 'Coconut Hair Oil', 199, 'oils.jpg/cocoil.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=coconut-oil"
+                    class="product-link"
+                >
+
+                    <img
+                        src="oils.jpg/cocoil.jpg"
+                        alt="Coconut Hair Oil"
+                    >
+
+                    <h3>
+                        Coconut Hair Oil
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹199
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Coconut Hair Oil',199,'oils.jpg/cocoil.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Coconut Hair Oil',199,'oils.jpg/cocoil.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Amla Oil -->
+
+            <div
+                class="product-card"
+                data-category="hairoils"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Amla Hair Oil"
+                    onclick="toggleWishlist(this, 'Amla Hair Oil', 229, 'oils.jpg/amlaoil.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=amla-oil"
+                    class="product-link"
+                >
+
+                    <img
+                        src="oils.jpg/amlaoil.jpg"
+                        alt="Amla Hair Oil"
+                    >
+
+                    <h3>
+                        Amla Hair Oil
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹229
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Amla Hair Oil',229,'oils.jpg/amlaoil.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Amla Hair Oil',229,'oils.jpg/amlaoil.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Bhringraj Oil -->
+
+            <div
+                class="product-card"
+                data-category="hairoils"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Bhringraj Hair Oil"
+                    onclick="toggleWishlist(this, 'Bhringraj Hair Oil', 249, 'oils.jpg/bhringrajoil.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=bhringraj-oil"
+                    class="product-link"
+                >
+
+                    <img
+                        src="oils.jpg/bhringrajoil.jpg"
+                        alt="Bhringraj Hair Oil"
+                    >
+
+                    <h3>
+                        Bhringraj Hair Oil
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹249
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Bhringraj Hair Oil',249,'oils.jpg/bhringrajoil.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Bhringraj Hair Oil',249,'oils.jpg/bhringrajoil.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Hibiscus Oil -->
+
+            <div
+                class="product-card"
+                data-category="hairoils"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Hibiscus Hair Oil"
+                    onclick="toggleWishlist(this, 'Hibiscus Hair Oil', 259, 'oils.jpg/hibisoil.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=hibiscus-oil"
+                    class="product-link"
+                >
+
+                    <img
+                        src="oils.jpg/hibisoil.jpg"
+                        alt="Hibiscus Hair Oil"
+                    >
+
+                    <h3>
+                        Hibiscus Hair Oil
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹259
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Hibiscus Hair Oil',259,'oils.jpg/hibisoil.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Hibiscus Hair Oil',259,'oils.jpg/hibisoil.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Onion Oil -->
+
+            <div
+                class="product-card"
+                data-category="hairoils"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Onion Hair Oil"
+                    onclick="toggleWishlist(this, 'Onion Hair Oil', 279, 'oils.jpg/onionoil.jpg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=onion-oil"
+                    class="product-link"
+                >
+
+                    <img
+                        src="oils.jpg/onionoil.jpg"
+                        alt="Onion Hair Oil"
+                    >
+
+                    <h3>
+                        Onion Hair Oil
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹279
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Onion Hair Oil',279,'oils.jpg/onionoil.jpg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Onion Hair Oil',279,'oils.jpg/onionoil.jpg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- ===================== FACE CARE ===================== -->
+    <!-- ===================================================== -->
+
+    <section
+        class="category-section"
+        data-category="facecare"
+    >
+
+        <h2 class="category-title">
+            ✨ Face Care
+        </h2>
+
+
+        <div class="products">
+
+
+            <!-- Aloe Face Cream -->
+
+            <div
+                class="product-card"
+                data-category="facecare"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Aloe Vera Face Cream"
+                    onclick="toggleWishlist(this, 'Aloe Vera Face Cream', 299, 'facecream/aloefcre.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=aloe-face-cream"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/aloefcre.jpg.jpeg"
+                        alt="Aloe Vera Face Cream"
+                    >
+
+                    <h3>
+                        Aloe Vera Face Cream
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹299
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Aloe Vera Face Cream',299,'facecream/aloefcre.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Aloe Vera Face Cream',299,'facecream/aloefcre.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Turmeric Face Cream -->
+
+            <div
+                class="product-card"
+                data-category="facecare"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Turmeric Face Cream"
+                    onclick="toggleWishlist(this, 'Turmeric Face Cream', 319, 'facecream/turfcre.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=turmeric-face-cream"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/turfcre.jpg.jpeg"
+                        alt="Turmeric Face Cream"
+                    >
+
+                    <h3>
+                        Turmeric Face Cream
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹319
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Turmeric Face Cream',319,'facecream/turfcre.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Turmeric Face Cream',319,'facecream/turfcre.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Sandalwood Cream -->
+
+            <div
+                class="product-card"
+                data-category="facecare"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Sandalwood Cream"
+                    onclick="toggleWishlist(this, 'Sandalwood Cream', 329, 'facecream/sandalfcre.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=sandalwood-cream"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/sandalfcre.jpeg"
+                        alt="Sandalwood Cream"
+                    >
+
+                    <h3>
+                        Sandalwood Cream
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹329
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Sandalwood Cream',329,'facecream/sandalfcre.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Sandalwood Cream',329,'facecream/sandalfcre.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Rose Face Cream -->
+
+            <div
+                class="product-card"
+                data-category="facecare"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Rose Face Cream"
+                    onclick="toggleWishlist(this, 'Rose Face Cream', 339, 'facecream/rosefcre.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=rose-face-cream"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/rosefcre.jpg.jpeg"
+                        alt="Rose Face Cream"
+                    >
+
+                    <h3>
+                        Rose Face Cream
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹339
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Rose Face Cream',339,'facecream/rosefcre.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Rose Face Cream',339,'facecream/rosefcre.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Neem Face Cream -->
+
+            <div
+                class="product-card"
+                data-category="facecare"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Neem Face Cream"
+                    onclick="toggleWishlist(this, 'Neem Face Cream', 349, 'facecream/neemfcre.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=neem-face-cream"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/neemfcre.jpg.jpeg"
+                        alt="Neem Face Cream"
+                    >
+
+                    <h3>
+                        Neem Face Cream
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹349
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Neem Face Cream',349,'facecream/neemfcre.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Neem Face Cream',349,'facecream/neemfcre.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- ===================== BODY CARE ===================== -->
+    <!-- ===================================================== -->
+
+    <section
+        class="category-section"
+        data-category="bodycare"
+    >
+
+        <h2 class="category-title">
+            🧴 Body Care
+        </h2>
+
+
+        <div class="products">
+
+
+            <!-- Body Scrub -->
+
+            <div
+                class="product-card"
+                data-category="bodycare"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Herbal Body Scrub"
+                    onclick="toggleWishlist(this, 'Herbal Body Scrub', 299, 'facecream/bodyscrub.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=body-scrub"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/bodyscrub.jpg.jpeg"
+                        alt="Herbal Body Scrub"
+                    >
+
+                    <h3>
+                        Herbal Body Scrub
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹299
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Herbal Body Scrub',299,'facecream/bodyscrub.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Herbal Body Scrub',299,'facecream/bodyscrub.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Aloe Vera Gel -->
+
+            <div
+                class="product-card"
+                data-category="bodycare"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Aloe Vera Gel"
+                    onclick="toggleWishlist(this, 'Aloe Vera Gel', 249, 'facecream/aloegel.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=aloe-gel"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/aloegel.jpg.jpeg"
+                        alt="Aloe Vera Gel"
+                    >
+
+                    <h3>
+                        Aloe Vera Gel
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹249
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Aloe Vera Gel',249,'facecream/aloegel.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Aloe Vera Gel',249,'facecream/aloegel.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Rose Water -->
+
+            <div
+                class="product-card"
+                data-category="bodycare"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Pure Rose Water"
+                    onclick="toggleWishlist(this, 'Pure Rose Water', 179, 'facecream/rosewater.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=rose-water"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/rosewater.jpg.jpeg"
+                        alt="Pure Rose Water"
+                    >
+
+                    <h3>
+                        Pure Rose Water
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹179
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Pure Rose Water',179,'facecream/rosewater.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Pure Rose Water',179,'facecream/rosewater.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- ================== HERBAL PRODUCTS ================== -->
+    <!-- ===================================================== -->
+
+    <section
+        class="category-section"
+        data-category="herbal"
+    >
+
+        <h2 class="category-title">
+            🌿 Herbal Products
+        </h2>
+
+
+        <div class="products">
+
+
+            <!-- Organic Face Wash -->
+
+            <div
+                class="product-card"
+                data-category="herbal"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Organic Face Wash"
+                    onclick="toggleWishlist(this, 'Organic Face Wash', 229, 'facecream/facewash.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=face-wash"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/facewash.jpg.jpeg"
+                        alt="Organic Face Wash"
+                    >
+
+                    <h3>
+                        Organic Face Wash
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹229
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Organic Face Wash',229,'facecream/facewash.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Organic Face Wash',229,'facecream/facewash.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+
+
+            <!-- Herbal Face Pack -->
+
+            <div
+                class="product-card"
+                data-category="herbal"
+            >
+
+                <button
+                    class="wishlist-btn"
+                    data-product="Herbal Face Pack"
+                    onclick="toggleWishlist(this, 'Herbal Face Pack', 199, 'facecream/facemask.jpg.jpeg')"
+                >
+                    ♡
+                </button>
+
+
+                <a
+                    href="product.html?product=face-pack"
+                    class="product-link"
+                >
+
+                    <img
+                        src="facecream/facemask.jpg.jpeg"
+                        alt="Herbal Face Pack"
+                    >
+
+                    <h3>
+                        Herbal Face Pack
+                    </h3>
+
+                </a>
+
+
+                <p class="price">
+                    ₹199
+                </p>
+
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('Herbal Face Pack',199,'facecream/facemask.jpg.jpeg')"
+                >
+                    🛒 Add to Cart
+                </button>
+
+
+                <button
+                    class="buy-btn"
+                    onclick="buyNow('Herbal Face Pack',199,'facecream/facemask.jpg.jpeg')"
+                >
+                    ⚡ Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 HERBAURA. All Rights Reserved.
+        </p>
+
+        <p>
+            Natural Products • Ayurvedic Care • Healthy Living
+        </p>
+
+    </footer>
+
+
+
+    <!-- ===================================================== -->
+    <!-- ===================== JAVASCRIPT ==================== -->
+    <!-- ===================================================== -->
+
+    <script>
+
+        /* =================================================
+           ADD TO CART
+        ================================================= */
+
+        function addToCart(name, price, image) {
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "herbauraCart"
+                    )
+                ) || [];
+
+
+            let existingProduct =
+                cart.find(
+                    function(item) {
+
+                        return item.name === name;
+
+                    }
+                );
+
+
+            if (existingProduct) {
+
+                existingProduct.quantity =
+                    Number(
+                        existingProduct.quantity || 0
+                    ) + 1;
+
+            }
+
+            else {
+
+                cart.push({
+
+                    name: name,
+
+                    price: price,
+
+                    image: image,
+
+                    quantity: 1
+
+                });
+
+            }
+
+
+            localStorage.setItem(
+                "herbauraCart",
+                JSON.stringify(cart)
+            );
+
+
+            alert(
+                name + " added to cart 🛒"
+            );
+
+        }
+
+
+
+        /* =================================================
+           BUY NOW
+        ================================================= */
+
+        function buyNow(name, price, image) {
+
+            let buyProduct = {
+
+                name: name,
+
+                price: price,
+
+                image: image,
+
+                quantity: 1
+
+            };
+
+
+            localStorage.setItem(
+                "herbauraBuyNow",
+                JSON.stringify(
+                    buyProduct
+                )
+            );
+
+
+            window.location.href =
+                "checkout.html";
+
+        }
+
+
+
+        /* =================================================
+           WISHLIST
+        ================================================= */
+
+        function toggleWishlist(
+            button,
+            name,
+            price,
+            image
+        ) {
+
+            let wishlist =
+                JSON.parse(
+                    localStorage.getItem(
+                        "herbauraWishlist"
+                    )
+                ) || [];
+
+
+            wishlist =
+                wishlist.map(
+                    function(item) {
+
+                        if (
+                            typeof item ===
+                            "string"
+                        ) {
+
+                            return {
+
+                                name: item,
+
+                                price: 0,
+
+                                image: ""
+
+                            };
+
+                        }
+
+                        return item;
+
+                    }
+                );
+
+
+            let existingIndex =
+                wishlist.findIndex(
+                    function(item) {
+
+                        return item.name === name;
+
+                    }
+                );
+
+
+            if (
+                existingIndex === -1
+            ) {
+
+                wishlist.push({
+
+                    name: name,
+
+                    price: price,
+
+                    image: image
+
+                });
+
+
+                button.innerHTML = "♥";
+
+                button.classList.add(
+                    "active"
+                );
+
+            }
+
+            else {
+
+                wishlist.splice(
+                    existingIndex,
+                    1
+                );
+
+
+                button.innerHTML = "♡";
+
+                button.classList.remove(
+                    "active"
+                );
+
+            }
+
+
+            localStorage.setItem(
+                "herbauraWishlist",
+                JSON.stringify(wishlist)
+            );
+
+        }
+
+
+
+        /* =================================================
+           CATEGORY + SEARCH + WISHLIST
+        ================================================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                const params =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const selectedCategory =
+                    params.get("category");
+
+
+                const searchText =
+                    params.get("search");
+
+
+                const sections =
+                    document.querySelectorAll(
+                        ".category-section"
+                    );
+
+
+                const cards =
+                    document.querySelectorAll(
+                        ".product-card"
+                    );
+
+
+                const shopTitle =
+                    document.querySelector(
+                        ".shop-title"
+                    );
+
+
+                const viewAll =
+                    document.getElementById(
+                        "viewAll"
+                    );
+
+
+                const categoryNames = {
+
+                    soaps: "🧼 Soaps",
+
+                    shampoos: "🧴 Shampoos",
+
+                    hairoils: "🌿 Hair Oils",
+
+                    facecare: "✨ Face Care",
+
+                    bodycare: "🧴 Body Care",
+
+                    herbal: "🌿 Herbal Products"
+
+                };
+
+
+                /* ================= SEARCH ================= */
+
+                if (searchText) {
+
+                    const search =
+                        searchText
+                            .toLowerCase()
+                            .trim();
+
+
+                    let found = false;
+
+
+                    cards.forEach(
+                        function(card) {
+
+                            const productName =
+                                card
+                                    .querySelector("h3")
+                                    .innerText
+                                    .toLowerCase();
+
+
+                            if (
+                                productName.includes(
+                                    search
+                                )
+                            ) {
+
+                                card.style.display =
+                                    "block";
+
+                                found = true;
+
+                            }
+
+                            else {
+
+                                card.style.display =
+                                    "none";
+
+                            }
+
+                        }
+                    );
+
+
+                    sections.forEach(
+                        function(section) {
+
+                            const visibleCards =
+                                section.querySelectorAll(
+                                    ".product-card:not([style*='display: none'])"
+                                );
+
+
+                            if (
+                                visibleCards.length ===
+                                0
+                            ) {
+
+                                section.style.display =
+                                    "none";
+
+                            }
+
+                            else {
+
+                                section.style.display =
+                                    "block";
+
+                            }
+
+                        }
+                    );
+
+
+                    shopTitle.innerHTML =
+                        "🔍 Search Results";
+
+
+                    viewAll.style.display =
+                        "block";
+
+
+                    if (!found) {
+
+                        const message =
+                            document.createElement(
+                                "p"
+                            );
+
+
+                        message.className =
+                            "no-product";
+
+
+                        message.innerText =
+                            '❌ No product found for "' +
+                            searchText +
+                            '"';
+
+
+                        document
+                            .querySelector(
+                                ".shop-subtitle"
+                            )
+                            .after(message);
+
+                    }
+
+                }
+
+
+                /* ================= CATEGORY ================= */
+
+                else if (
+                    selectedCategory &&
+                    categoryNames[
+                        selectedCategory
+                    ]
+                ) {
+
+                    shopTitle.innerHTML =
+                        categoryNames[
+                            selectedCategory
+                        ] +
+                        " - HERBAURA SHOP";
+
+
+                    viewAll.style.display =
+                        "block";
+
+
+                    sections.forEach(
+                        function(section) {
+
+                            const sectionCategory =
+                                section.getAttribute(
+                                    "data-category"
+                                );
+
+
+                            if (
+                                selectedCategory ===
+                                "herbal"
+                            ) {
+
+                                section.style.display =
+                                    "block";
+
+                            }
+
+                            else if (
+                                sectionCategory ===
+                                selectedCategory
+                            ) {
+
+                                section.style.display =
+                                    "block";
+
+                            }
+
+                            else {
+
+                                section.style.display =
+                                    "none";
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                /* ================= SHOW ALL ================= */
+
+                else {
+
+                    shopTitle.innerHTML =
+                        "Our Herbal Products";
+
+
+                    viewAll.style.display =
+                        "none";
+
+
+                    sections.forEach(
+                        function(section) {
+
+                            section.style.display =
+                                "block";
+
+                        }
+                    );
+
+                }
+
+
+
+                /* ================= RESTORE WISHLIST ================= */
+
+                let wishlist =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "herbauraWishlist"
+                        )
+                    ) || [];
+
+
+                wishlist =
+                    wishlist.map(
+                        function(item) {
+
+                            if (
+                                typeof item ===
+                                "string"
+                            ) {
+
+                                return {
+
+                                    name: item,
+
+                                    price: 0,
+
+                                    image: ""
+
+                                };
+
+                            }
+
+                            return item;
+
+                        }
+                    );
+
+
+                const buttons =
+                    document.querySelectorAll(
+                        ".wishlist-btn"
+                    );
+
+
+                buttons.forEach(
+                    function(button) {
+
+                        const productName =
+                            button.getAttribute(
+                                "data-product"
+                            );
+
+
+                        const found =
+                            wishlist.some(
+                                function(item) {
+
+                                    return (
+                                        item.name ===
+                                        productName
+                                    );
+
+                                }
+                            );
+
+
+                        if (found) {
+
+                            button.innerHTML =
+                                "♥";
+
+                            button.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

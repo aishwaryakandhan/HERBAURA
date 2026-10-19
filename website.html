@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HERBAURA - Ayurvedic Product</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #faf7f2;
+    color: #292522;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    background-color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand h1 {
+    margin: 0;
+    color: #4a3428;
+    font-size: 30px;
+}
+
+.brand p {
+    margin: 5px 0 0;
+    color: #6b584a;
+    font-size: 14px;
+}
+
+header button {
+    background-color: #a65d3b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.top-contact {
+    background-color: #a65d3b;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.top-contact:hover {
+    background-color: #4a3428;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+nav {
+    background-color: #4a3428;
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #ffd9c7;
+}
+
+nav input {
+    margin-left: auto;
+    width: 280px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-container {
+    position: relative;
+    margin-left: auto;
+}
+
+#homeSearch {
+    width: 250px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.suggestions {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 280px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    color: #4a3428;
+}
+
+.suggestion-item:hover {
+    background-color: #faf7f2;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    margin: 30px 6%;
+    padding: 60px;
+    min-height: 350px;
+
+    background-image:
+        linear-gradient(
+            rgba(250,247,242,0.10),
+            rgba(250,247,242,0.10)
+        ),
+        url("hero.jpg/pexels-nandhukumar-34086126.jpg.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+
+.text-box {
+    background-color: rgba(255,255,255,0.65);
+    padding: 50px 60px;
+    border-radius: 12px;
+    max-width: 620px;
+}
+
+.hero h2 {
+    color: #4a3428;
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.hero button {
+    background-color: #a65d3b;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* ================= SHOP BUTTON ================= */
+
+.shop-btn {
+    display: inline-block;
+    background-color: #a65d3b;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.shop-btn:hover {
+    background-color: #4a3428;
+}
+
+
+/* ================= CATEGORIES ================= */
+
+.categories {
+    padding: 40px 6%;
+    text-align: center;
+}
+
+.categories h2,
+.products h2 {
+    color: #4a3428;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.category-container,
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+
+/* ================= CATEGORY LINK ================= */
+
+.category-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================= CATEGORY CARD ================= */
+
+.category-card {
+    background-color: white;
+    width: 220px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-icon {
+    font-size: 40px;
+}
+
+.category-card h3 {
+    color: #4a3428;
+}
+
+.category-card p {
+    color: #6b584a;
+}
+
+
+/* ================= PRODUCTS ================= */
+
+.products {
+    padding: 40px 6%;
+    text-align: center;
+}
+
+.product-card {
+    position: relative;
+    background-color: white;
+    width: 220px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* ================= PRODUCT LINK ================= */
+
+.product-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-link img {
+    display: block;
+    cursor: pointer;
+}
+
+.product-link h3 {
+    cursor: pointer;
+}
+
+.product-card h3 {
+    color: #4a3428;
+    margin: 12px 0 5px;
+}
+
+.product-card p {
+    color: #6b584a;
+    font-size: 14px;
+}
+
+.price {
+    color: #a65d3b !important;
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+
+/* ================= CART BUTTON ================= */
+
+.cart-btn {
+    width: 100%;
+    background-color: #a65d3b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    background-color: #4a3428;
+}
+
+
+/* ================= BUY NOW BUTTON ================= */
+
+.buy-btn {
+    width: 100%;
+    margin-top: 8px;
+    background-color: #4a3428;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.buy-btn:hover {
+    background-color: #a65d3b;
+}
+
+
+/* ================= WISHLIST HEART ================= */
+
+.heart {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    border: none;
+
+    background-color: white;
+    color: #777;
+
+    font-size: 27px;
+    line-height: 42px;
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+
+    z-index: 10;
+}
+
+.heart:hover {
+    transform: scale(1.1);
+}
+
+.heart.liked {
+    color: red;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background-color: #f8f1e7;
+    color: #5a4638;
+    padding: 45px 50px 20px;
+    margin-top: 40px;
+}
+
+footer h3 {
+    color: #4a3425;
+}
+
+footer a {
+    color: #6b5140;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #a96842;
+    text-decoration: underline;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .search-container {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #homeSearch {
+        width: 100%;
+    }
+
+    .suggestions {
+        width: 100%;
+    }
+
+    .hero {
+        padding: 30px;
+    }
+
+    .text-box {
+        padding: 30px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+}
+/* Profile Menu */
+.profile-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    background-color: white;
+    min-width: 190px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+.profile-dropdown a,
+.profile-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #4a3428;
+    background: white;
+    border: none;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.profile-dropdown a:hover,
+.profile-dropdown button:hover {
+    background-color: #faf7f2;
+}
+
+.profile-menu:hover .profile-dropdown {
+    display: block;
+}
+
+</style>
+
+</head>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const loggedInUser =
+        JSON.parse(localStorage.getItem("herbauraLoggedInUser"));
+
+    const profileUsername =
+        document.getElementById("profileUsername");
+
+    if (loggedInUser) {
+
+        profileUsername.textContent =
+            loggedInUser.username;
+
+    } else {
+
+        profileUsername.textContent = "LOGIN";
+
+        document.getElementById("profileButton").onclick =
+            function () {
+                window.location.href = "login.html";
+            };
+
+    }
+
+});
+
+
+function logout() {
+
+    localStorage.removeItem("herbauraLoggedInUser");
+
+    alert("Logged out successfully!");
+
+    window.location.href = "website.html";
+
+}
+
+</script>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="brand">
+
+        <h1>
+            🌿 HERBAURA
+        </h1>
+
+        <p>
+            Natural Ayurvedic Care
+        </p>
+
+    </div>
+
+
+    <a
+        href="contact.html"
+        class="top-contact"
+    >
+        Contact Us
+    </a>
+
+</header>
+
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <a href="website.html">
+        HOME
+    </a>
+
+    <a href="deals.html">
+        DEALS
+    </a>
+
+    <a href="contact.html">
+        CONTACT US
+    </a>
+
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="homeSearch"
+            placeholder="🔍 Search for what you want..."
+            autocomplete="off"
+            oninput="showSuggestions()"
+            onkeydown="handleSearch(event)"
+        >
+
+        <div
+            id="suggestions"
+            class="suggestions"
+        ></div>
+
+    </div>
+
+
+    <a href="wishlist.html">
+        ♥ WISHLIST
+    </a>
+
+    <a href="cart.html">
+        🛒 MY CART
+    </a>
+
+    <div class="profile-menu" id="profileMenu">
+
+    <button class="profile-btn" id="profileButton">
+        👤 <span id="profileUsername">LOGIN</span> ▼
+    </button>
+
+    <div class="profile-dropdown">
+
+        <a href="manage-account.html">
+            👤 Manage Account
+        </a>
+
+        <a href="orders.html">
+            🛒 My Orders
+        </a>
+
+        <a href="wishlist.html">
+            ❤️ Wishlist
+        </a>
+
+        <a href="cart.html">
+            🛒 My Cart
+        </a>
+
+        <button onclick="logout()">
+            🚪 Logout
+        </button>
+
+    </div>
+
+</div>
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="text-box">
+
+        <h2>
+            Natural Care,
+            <br>
+            Made Simple
+        </h2>
+
+        <p>
+            Discover premium Ayurvedic products
+            for your everyday beauty and wellness.
+        </p>
+
+        <a
+            href="shop.html"
+            class="shop-btn"
+        >
+            Shop Now
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories">
+
+    <h2>
+        Shop by Category
+    </h2>
+
+
+    <div class="category-container">
+
+
+        <!-- SOAPS -->
+
+        <a
+            href="shop.html?category=soaps"
+            class="category-link"
+        >
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🧼
+                </div>
+
+                <h3>
+                    Soaps
+                </h3>
+
+                <p>
+                    Natural herbal soaps
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- SHAMPOOS -->
+
+        <a
+            href="shop.html?category=shampoos"
+            class="category-link"
+        >
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🧴
+                </div>
+
+                <h3>
+                    Shampoos
+                </h3>
+
+                <p>
+                    Gentle hair care
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- HAIR OILS -->
+
+        <a
+            href="shop.html?category=hairoils"
+            class="category-link"
+        >
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Hair Oils
+                </h3>
+
+                <p>
+                    Traditional herbal oils
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- FACE CARE -->
+
+        <a
+            href="shop.html?category=facecare"
+            class="category-link"
+        >
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Face Care
+                </h3>
+
+                <p>
+                    Ayurvedic face care
+                </p>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section
+    class="products"
+    id="products"
+>
+
+    <h2>
+        Featured Products
+    </h2>
+
+
+    <div class="product-container">
+
+
+        <!-- ================= PRODUCT 1 ================= -->
+
+        <div class="product-card">
+
+
+            <button
+                class="heart"
+                type="button"
+                onclick="toggleHeart(this, 'Neem Herbal Soap')"
+            >
+                ♡
+            </button>
+
+
+            <a
+                href="product.html?product=neemsoap"
+                class="product-link"
+            >
+
+                <img
+                    src="neemsoap.jpg/pexels-denissevillar-31517861.jpg"
+                    alt="Neem Herbal Soap"
+                >
+
+                <h3>
+                    Neem Herbal Soap
+                </h3>
+
+            </a>
+
+
+            <p>
+                Natural neem herbal soap
+            </p>
+
+
+            <p class="price">
+                ₹149
+            </p>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="cart-btn"
+                onclick="addToCart(
+                    'Neem Herbal Soap',
+                    149,
+                    'neemsoap.jpg/pexels-denissevillar-31517861.jpg'
+                )"
+            >
+                🛒 Add to Cart
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-btn"
+                onclick="buyNow(
+                    'Neem Herbal Soap',
+                    149,
+                    'neemsoap.jpg/pexels-denissevillar-31517861.jpg'
+                )"
+            >
+                ⚡ Buy Now
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= PRODUCT 2 ================= -->
+
+        <div class="product-card">
+
+
+            <button
+                class="heart"
+                type="button"
+                onclick="toggleHeart(this, 'Amla Herbal Shampoo')"
+            >
+                ♡
+            </button>
+
+
+            <a
+                href="product.html?product=amla-shampoo"
+                class="product-link"
+            >
+
+                <img
+                    src="New folder/amla.jpg"
+                    alt="Amla Herbal Shampoo"
+                >
+
+                <h3>
+                    Amla Herbal Shampoo
+                </h3>
+
+            </a>
+
+
+            <p>
+                Gentle amla herbal hair care
+            </p>
+
+
+            <p class="price">
+                ₹249
+            </p>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="cart-btn"
+                onclick="addToCart(
+                    'Amla Herbal Shampoo',
+                    249,
+                    'New folder/amla.jpg'
+                )"
+            >
+                🛒 Add to Cart
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-btn"
+                onclick="buyNow(
+                    'Amla Herbal Shampoo',
+                    249,
+                    'New folder/amla.jpg'
+                )"
+            >
+                ⚡ Buy Now
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= PRODUCT 3 ================= -->
+
+        <div class="product-card">
+
+
+            <button
+                class="heart"
+                type="button"
+                onclick="toggleHeart(this, 'Coconut Hair Oil')"
+            >
+                ♡
+            </button>
+
+
+            <a
+                href="product.html?product=coconut-oil"
+                class="product-link"
+            >
+
+                <img
+                    src="oils.jpg/cocoil.jpg"
+                    alt="Coconut Hair Oil"
+                >
+
+                <h3>
+                    Coconut Hair Oil
+                </h3>
+
+            </a>
+
+
+            <p>
+                Nourishing coconut hair oil
+            </p>
+
+
+            <p class="price">
+                ₹199
+            </p>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="cart-btn"
+                onclick="addToCart(
+                    'Coconut Hair Oil',
+                    199,
+                    'oils.jpg/cocoil.jpg'
+                )"
+            >
+                🛒 Add to Cart
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-btn"
+                onclick="buyNow(
+                    'Coconut Hair Oil',
+                    199,
+                    'oils.jpg/cocoil.jpg'
+                )"
+            >
+                ⚡ Buy Now
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= PRODUCT 4 ================= -->
+
+        <div class="product-card">
+
+
+            <button
+                class="heart"
+                type="button"
+                onclick="toggleHeart(this, 'Aloe Vera Face Cream')"
+            >
+                ♡
+            </button>
+
+
+            <a
+                href="product.html?product=aloe-face-cream"
+                class="product-link"
+            >
+
+                <img
+                    src="facecream/aloefcre.jpg.jpeg"
+                    alt="Aloe Vera Face Cream"
+                >
+
+                <h3>
+                    Aloe Vera Face Cream
+                </h3>
+
+            </a>
+
+
+            <p>
+                Natural aloe vera skin care
+            </p>
+
+
+            <p class="price">
+                ₹299
+            </p>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="cart-btn"
+                onclick="addToCart(
+                    'Aloe Vera Face Cream',
+                    299,
+                    'facecream/aloefcre.jpg.jpeg'
+                )"
+            >
+                🛒 Add to Cart
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-btn"
+                onclick="buyNow(
+                    'Aloe Vera Face Cream',
+                    299,
+                    'facecream/aloefcre.jpg.jpeg'
+                )"
+            >
+                ⚡ Buy Now
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        gap:40px;
+        flex-wrap:wrap;
+    ">
+
+
+        <!-- COMPANY -->
+
+        <div>
+
+            <h3>
+                Company
+            </h3>
+
+            <p>
+                <a href="about.html">
+                    About Us
+                </a>
+            </p>
+
+            <p>
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+            </p>
+
+            <p>
+                <a href="delivery.html">
+                    Delivery & Shipping
+                </a>
+            </p>
+
+            <p>
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+            </p>
+
+            <p>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </p>
+
+            <p>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </p>
+
+        </div>
+
+
+
+        <!-- QUICK LINKS -->
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <p>
+                <a href="website.html">
+                    Home
+                </a>
+            </p>
+
+            <p>
+                <a href="cart.html">
+                    My Cart
+                </a>
+            </p>
+
+            <p>
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+            </p>
+
+            <p>
+                <a href="shop.html">
+                    Products
+                </a>
+            </p>
+
+        </div>
+
+
+
+        <!-- CATEGORIES -->
+
+        <div>
+
+            <h3>
+                Categories
+            </h3>
+
+            <p>
+                <a href="shop.html?category=soaps">
+                    Soaps
+                </a>
+            </p>
+
+            <p>
+                <a href="shop.html?category=shampoos">
+                    Shampoos
+                </a>
+            </p>
+
+            <p>
+                <a href="shop.html?category=hairoils">
+                    Hair Oils
+                </a>
+            </p>
+
+            <p>
+                <a href="shop.html?category=facecare">
+                    Face Care
+                </a>
+            </p>
+
+            <p>
+                <a href="shop.html?category=bodycare">
+                    Body Care
+                </a>
+            </p>
+
+            <p>
+                <a href="shop.html?category=herbal">
+                    Herbal Products
+                </a>
+            </p>
+
+        </div>
+
+
+
+        <!-- CONTACT -->
+
+        <div>
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                ✉️ contact@herbaura.com
+            </p>
+
+            <p>
+                📍 Chennai, Tamil Nadu, India
+            </p>
+
+        </div>
+
+
+
+        <!-- APP -->
+
+        <div>
+
+            <h3>
+                Herbaura Mobile App
+            </h3>
+
+            <p>
+                Download our mobile app for
+                <br>
+                easy access anytime, anywhere.
+            </p>
+
+
+            <button style="
+                padding:10px 18px;
+                border:1px solid #aaa;
+                border-radius:6px;
+                background:white;
+            ">
+                ▶ Google Play
+            </button>
+
+
+            <button style="
+                padding:10px 18px;
+                border:1px solid #aaa;
+                border-radius:6px;
+                background:white;
+            ">
+                 App Store
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <hr style="
+        margin-top:35px;
+        border:0;
+        border-top:1px solid #d8c8b8;
+    ">
+
+
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        margin-top:20px;
+    ">
+
+        <p>
+            © 2026 Herbaura. All rights reserved.
+        </p>
+
+        <p>
+            Follow us on
+            📘 &nbsp; 📷 &nbsp; 𝕏
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+/* =====================================================
+   SEARCH PRODUCTS
+===================================================== */
+
+const products = [
+
+    "Neem Herbal Soap",
+    "Turmeric Soap",
+    "Aloe Vera Soap",
+    "Sandalwood Soap",
+    "Rose Herbal Soap",
+
+    "Amla Herbal Shampoo",
+    "Neem Shampoo",
+    "Aloe Vera Shampoo",
+    "Hibiscus Shampoo",
+    "Shikakai Shampoo",
+
+    "Coconut Hair Oil",
+    "Amla Hair Oil",
+    "Bhringraj Hair Oil",
+    "Hibiscus Hair Oil",
+    "Onion Hair Oil",
+
+    "Aloe Vera Face Cream",
+    "Turmeric Face Cream",
+    "Sandalwood Cream",
+    "Rose Face Cream",
+    "Neem Face Cream",
+
+    "Organic Face Wash",
+    "Herbal Body Scrub",
+    "Aloe Vera Gel",
+    "Herbal Face Pack",
+    "Pure Rose Water"
+
+];
+
+
+function showSuggestions() {
+
+    let input =
+        document.getElementById("homeSearch");
+
+    let suggestionBox =
+        document.getElementById("suggestions");
+
+    let text =
+        input.value.toLowerCase().trim();
+
+
+    suggestionBox.innerHTML = "";
+
+
+    if (text === "") {
+
+        suggestionBox.style.display = "none";
+
+        return;
+
+    }
+
+
+    let matches =
+        products.filter(function(product) {
+
+            return product
+                .toLowerCase()
+                .includes(text);
+
+        });
+
+
+    if (matches.length === 0) {
+
+        suggestionBox.style.display = "none";
+
+        return;
+
+    }
+
+
+    matches.forEach(function(product) {
+
+        let item =
+            document.createElement("div");
+
+
+        item.className =
+            "suggestion-item";
+
+
+        item.innerText =
+            "🔍 " + product;
+
+
+        item.onclick =
+            function() {
+
+                searchProduct(product);
+
+            };
+
+
+        suggestionBox.appendChild(item);
+
+    });
+
+
+    suggestionBox.style.display =
+        "block";
+
+}
+
+
+function searchProduct(product) {
+
+    window.location.href =
+        "shop.html?search=" +
+        encodeURIComponent(product);
+
+}
+
+
+function handleSearch(event) {
+
+    if (event.key === "Enter") {
+
+        let text =
+            document
+            .getElementById("homeSearch")
+            .value
+            .trim();
+
+
+        if (text === "") {
+
+            return;
+
+        }
+
+
+        searchProduct(text);
+
+    }
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        let searchBox =
+            document.querySelector(
+                ".search-container"
+            );
+
+
+        if (
+            searchBox &&
+            !searchBox.contains(event.target)
+        ) {
+
+            document
+                .getElementById("suggestions")
+                .style.display = "none";
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart(
+    name,
+    price,
+    image
+) {
+
+    let cart =
+        JSON.parse(
+            localStorage.getItem(
+                "herbauraCart"
+            )
+        ) || [];
+
+
+    let existingProduct =
+        cart.find(function(item) {
+
+            return item.name === name;
+
+        });
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity =
+            Number(
+                existingProduct.quantity || 0
+            ) + 1;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+
+            price: price,
+
+            image: image,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "herbauraCart",
+        JSON.stringify(cart)
+    );
+
+
+    alert(
+        name +
+        " added to cart 🛒"
+    );
+
+}
+
+
+
+/* =====================================================
+   BUY NOW
+===================================================== */
+
+function buyNow(
+    name,
+    price,
+    image
+) {
+
+    let buyProduct = {
+
+        name: name,
+
+        price: price,
+
+        image: image,
+
+        quantity: 1
+
+    };
+
+
+    localStorage.setItem(
+        "herbauraBuyNow",
+        JSON.stringify(
+            buyProduct
+        )
+    );
+
+
+    window.location.href =
+        "checkout.html";
+
+}
+
+
+
+/* =====================================================
+   WISHLIST
+===================================================== */
+
+function toggleHeart(
+    button,
+    productName
+) {
+
+    let wishlist =
+        JSON.parse(
+            localStorage.getItem(
+                "herbauraWishlist"
+            )
+        ) || [];
+
+
+    wishlist =
+        wishlist.map(
+            function(item) {
+
+                if (
+                    typeof item ===
+                    "string"
+                ) {
+
+                    return {
+
+                        name: item,
+
+                        price: 0,
+
+                        image: ""
+
+                    };
+
+                }
+
+                return item;
+
+            }
+        );
+
+
+    let existingIndex =
+        wishlist.findIndex(
+            function(item) {
+
+                return (
+                    item.name ===
+                    productName
+                );
+
+            }
+        );
+
+
+    if (
+        existingIndex === -1
+    ) {
+
+        let card =
+            button.closest(
+                ".product-card"
+            );
+
+
+        let image =
+            card
+            .querySelector("img")
+            .getAttribute("src");
+
+
+        let priceText =
+            card
+            .querySelector(".price")
+            .innerText;
+
+
+        let price =
+            parseInt(
+                priceText.replace(
+                    /[^\d]/g,
+                    ""
+                )
+            );
+
+
+        wishlist.push({
+
+            name: productName,
+
+            price: price,
+
+            image: image
+
+        });
+
+
+        button.innerHTML =
+            "♥";
+
+
+        button.classList.add(
+            "liked"
+        );
+
+    }
+
+    else {
+
+        wishlist.splice(
+            existingIndex,
+            1
+        );
+
+
+        button.innerHTML =
+            "♡";
+
+
+        button.classList.remove(
+            "liked"
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "herbauraWishlist",
+        JSON.stringify(
+            wishlist
+        )
+    );
+
+}
+
+
+
+/* =====================================================
+   RESTORE WISHLIST HEART
+===================================================== */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        let wishlist =
+            JSON.parse(
+                localStorage.getItem(
+                    "herbauraWishlist"
+                )
+            ) || [];
+
+
+        wishlist =
+            wishlist.map(
+                function(item) {
+
+                    if (
+                        typeof item ===
+                        "string"
+                    ) {
+
+                        return {
+
+                            name: item,
+
+                            price: 0,
+
+                            image: ""
+
+                        };
+
+                    }
+
+                    return item;
+
+                }
+            );
+
+
+        let hearts =
+            document.querySelectorAll(
+                ".heart"
+            );
+
+
+        hearts.forEach(
+            function(button) {
+
+                let productName =
+                    button
+                    .getAttribute(
+                        "onclick"
+                    )
+                    .split("'")[1];
+
+
+                let found =
+                    wishlist.some(
+                        function(item) {
+
+                            return (
+                                item.name ===
+                                productName
+                            );
+
+                        }
+                    );
+
+
+                if (found) {
+
+                    button.innerHTML =
+                        "♥";
+
+                    button.classList.add(
+                        "liked"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

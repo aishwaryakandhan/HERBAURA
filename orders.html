@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>HERBAURA - My Orders</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background-color: #faf7f2;
+        color: #292522;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+        background-color: white;
+        padding: 20px 6%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1 {
+        margin: 0;
+        color: #4a3428;
+    }
+
+    header p {
+        margin: 5px 0 0;
+        color: #6b584a;
+    }
+
+    .home-btn {
+        background-color: #a65d3b;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .home-btn:hover {
+        background-color: #4a3428;
+    }
+
+    nav {
+        background-color: #4a3428;
+        padding: 14px 6%;
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        color: #f2c7a5;
+    }
+
+    .orders-container {
+        width: 900px;
+        max-width: 92%;
+        margin: 45px auto;
+    }
+
+    .orders-container h2 {
+        text-align: center;
+        color: #4a3428;
+        margin-bottom: 30px;
+    }
+
+    .order-card {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e5d8cf;
+        padding-bottom: 12px;
+        margin-bottom: 15px;
+    }
+
+    .order-id {
+        font-weight: bold;
+        color: #4a3428;
+    }
+
+    .order-status {
+        background-color: #e7f5e8;
+        color: #357a38;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .order-product {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 15px 0;
+    }
+
+    .order-product img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .product-info h3 {
+        margin: 0 0 8px;
+        color: #4a3428;
+    }
+
+    .product-info p {
+        margin: 4px 0;
+        color: #6b584a;
+    }
+
+    .order-total {
+        text-align: right;
+        border-top: 1px solid #e5d8cf;
+        padding-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #a65d3b;
+    }
+
+    .empty-orders {
+        background-color: white;
+        padding: 50px 20px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .empty-orders h3 {
+        color: #4a3428;
+    }
+
+    .empty-orders p {
+        color: #6b584a;
+    }
+
+    .shop-btn {
+        display: inline-block;
+        margin-top: 15px;
+        background-color: #a65d3b;
+        color: white;
+        text-decoration: none;
+        padding: 11px 22px;
+        border-radius: 5px;
+    }
+
+    .shop-btn:hover {
+        background-color: #4a3428;
+    }
+
+    @media (max-width: 600px) {
+
+        header {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        nav {
+            justify-content: center;
+        }
+
+        .order-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .order-product {
+            align-items: flex-start;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<header>
+
+    <div>
+        <h1>🌿 HERBAURA</h1>
+        <p>Natural Ayurvedic & Organic Products</p>
+    </div>
+
+    <a href="website.html" class="home-btn">
+        ← Return Home
+    </a>
+
+</header>
+
+
+<nav>
+
+    <a href="website.html">HOME</a>
+    <a href="deals.html">DEALS</a>
+    <a href="shop.html">SHOP</a>
+    <a href="contact.html">CONTACT US</a>
+    <a href="wishlist.html">❤️ WISHLIST</a>
+    <a href="cart.html">🛒 MY CART</a>
+
+</nav>
+
+
+<div class="orders-container">
+
+    <h2>📦 My Orders</h2>
+
+    <div id="ordersList"></div>
+
+</div>
+
+
+<script>
+
+    const loggedInUser =
+        JSON.parse(
+            localStorage.getItem("herbauraLoggedInUser")
+        );
+
+
+    // User must login first
+
+    if (!loggedInUser) {
+
+        alert("Please login to view your orders!");
+
+        window.location.href = "login.html";
+
+    }
+
+
+    function loadOrders() {
+
+        const orders =
+            JSON.parse(
+                localStorage.getItem("herbauraOrders")
+            ) || [];
+
+
+        const ordersList =
+            document.getElementById("ordersList");
+
+
+        // Show only current user's orders
+
+        const userOrders = orders.filter(function(order) {
+
+            return order.username === loggedInUser.username;
+
+        });
+
+
+        if (userOrders.length === 0) {
+
+            ordersList.innerHTML = `
+                <div class="empty-orders">
+
+                    <h3>📦 No Orders Yet</h3>
+
+                    <p>
+                        You haven't placed any orders yet.
+                    </p>
+
+                    <a href="shop.html" class="shop-btn">
+                        🛍️ Start Shopping
+                    </a>
+
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        ordersList.innerHTML = "";
+
+
+        userOrders.forEach(function(order) {
+
+            let productsHTML = "";
+
+
+            order.products.forEach(function(product) {
+
+                productsHTML += `
+
+                    <div class="order-product">
+
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                        >
+
+                        <div class="product-info">
+
+                            <h3>${product.name}</h3>
+
+                            <p>
+                                Quantity: ${product.quantity}
+                            </p>
+
+                            <p>
+                                Price: ₹${product.price}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            ordersList.innerHTML += `
+
+                <div class="order-card">
+
+                    <div class="order-header">
+
+                        <div>
+
+                            <div class="order-id">
+                                Order ID: ${order.orderId}
+                            </div>
+
+                            <small>
+                                ${order.date}
+                            </small>
+
+                        </div>
+
+                        <div class="order-status">
+                            ${order.status}
+                        </div>
+
+                    </div>
+
+                    ${productsHTML}
+
+                    <div class="order-total">
+                        Total: ₹${order.total}
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    loadOrders();
+
+</script>
+```
+
+</body>
+</html>

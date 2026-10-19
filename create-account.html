@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HERBAURA - Create Account</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            background-color: #faf7f2;
+            color: #292522;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background-color: white;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            color: #4a3428;
+            margin: 0;
+        }
+
+        header p {
+            color: #6b584a;
+            margin: 5px 0 0;
+        }
+
+        .home-btn {
+            background-color: #a65d3b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        nav {
+            background-color: #4a3428;
+            padding: 14px 6%;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .account-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 75vh;
+        }
+
+        .account-box {
+            background-color: white;
+            width: 400px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+        }
+
+        .account-box h2 {
+            text-align: center;
+            color: #4a3428;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #6b584a;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #a65d3b;
+        }
+
+        .create-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #a65d3b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .create-btn:hover {
+            background-color: #8f4e32;
+        }
+
+        .create-btn:disabled {
+            background-color: #b9a69b;
+            cursor: not-allowed;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #a65d3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <div>
+
+            <h1>HERBAURA</h1>
+
+            <p>Natural & Ayurvedic Products</p>
+
+        </div>
+
+        <a href="website.html" class="home-btn">
+            Return Home
+        </a>
+
+    </header>
+
+
+    <nav>
+
+        <a href="website.html">HOME</a>
+
+        <a href="deals.html">DEALS</a>
+
+        <a href="shop.html">SHOP</a>
+
+        <a href="wishlist.html">WISHLIST</a>
+
+        <a href="cart.html">MY CART</a>
+
+        <a href="login.html">LOGIN</a>
+
+    </nav>
+
+
+    <div class="account-container">
+
+
+        <div class="account-box">
+
+
+            <h2>Create New Account</h2>
+
+
+            <form id="createAccountForm">
+
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+
+                <label>Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Create a username"
+                    required
+                >
+
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+
+                <label>Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                    class="create-btn"
+                    id="createBtn"
+                >
+                    Create Account
+                </button>
+
+
+            </form>
+
+
+            <div class="login-link">
+
+                <p>Already have an account?</p>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        document
+            .getElementById("createAccountForm")
+            .addEventListener("submit", async function(event) {
+
+
+                event.preventDefault();
+
+
+                // Get form values
+
+                const fullName =
+                    document.getElementById("fullName").value.trim();
+
+                const username =
+                    document.getElementById("username").value.trim();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const password =
+                    document.getElementById("password").value;
+
+                const confirmPassword =
+                    document.getElementById("confirmPassword").value;
+
+
+                const createBtn =
+                    document.getElementById("createBtn");
+
+
+                // Check password
+
+                if (password !== confirmPassword) {
+
+                    alert("Passwords do not match!");
+
+                    return;
+
+                }
+
+
+                // Disable button
+
+                createBtn.disabled = true;
+
+                createBtn.textContent = "Creating Account...";
+
+
+                try {
+
+
+                    // Send data to backend
+
+                    const response = await fetch(
+                        "http://localhost:5000/api/register",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                fullName: fullName,
+
+                                username: username,
+
+                                email: email,
+
+                                password: password
+
+                            })
+
+                        }
+                    );
+
+
+                    const data = await response.json();
+
+
+                    // Successful registration
+
+                    if (response.ok) {
+
+
+                        alert(
+                            "Account created successfully!"
+                        );
+
+
+                        // Clear form
+
+                        document
+                            .getElementById("createAccountForm")
+                            .reset();
+
+
+                        // Go to login page
+
+                        window.location.href =
+                            "login.html";
+
+
+                    }
+
+
+                    // Backend error
+
+                    else {
+
+                        alert(data.message);
+
+                    }
+
+
+                }
+
+
+                catch (error) {
+
+
+                    console.error(
+                        "Registration Error:",
+                        error
+                    );
+
+
+                    alert(
+                        "Cannot connect to HERBAURA server. Make sure server.js is running."
+                    );
+
+
+                }
+
+
+                // Enable button again
+
+                createBtn.disabled = false;
+
+                createBtn.textContent =
+                    "Create Account";
+
+
+            });
+
+
+    </script>
+
+
+</body>
+
+</html>

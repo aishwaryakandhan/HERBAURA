@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog - HERBAURA</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #faf7f2;
+            color: #292522;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background-color: white;
+            padding: 20px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand h1 {
+            margin: 0;
+            color: #4a3428;
+            font-size: 30px;
+        }
+
+        .brand p {
+            margin: 5px 0 0;
+            color: #6b584a;
+            font-size: 14px;
+        }
+
+        header a {
+            background-color: #a65d3b;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        header a:hover {
+            background-color: #4a3428;
+        }
+
+        nav {
+            background-color: #4a3428;
+            padding: 14px 6%;
+
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ffd9c7;
+        }
+
+        .content {
+            width: 85%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #4a3428;
+            font-size: 34px;
+            margin-bottom: 35px;
+        }
+
+        .blog-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .blog-card {
+            background-color: white;
+            width: 300px;
+            padding: 25px;
+            border-radius: 12px;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-icon {
+            font-size: 45px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .blog-card h2 {
+            color: #4a3428;
+            font-size: 21px;
+        }
+
+        .blog-card p {
+            color: #6b584a;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #a65d3b;
+            color: white;
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: 5px;
+        }
+
+        .read-more:hover {
+            background-color: #4a3428;
+        }
+
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+
+            background-color: #a65d3b;
+            color: white;
+            text-decoration: none;
+
+            padding: 12px 25px;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #4a3428;
+        }
+
+        footer {
+            background-color: #f8f1e7;
+            color: #5a4638;
+            padding: 30px 6%;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="brand">
+
+        <h1>🌿 HERBAURA</h1>
+
+        <p>Natural Ayurvedic Care</p>
+
+    </div>
+
+    <a href="website.html">
+        Home
+    </a>
+
+</header>
+
+
+<nav>
+
+    <a href="website.html">HOME</a>
+
+    <a href="deals.html">DEALS</a>
+
+    <a href="shop.html">SHOP</a>
+
+    <a href="wishlist.html">WISHLIST</a>
+
+    <a href="cart.html">MY CART</a>
+
+    <a href="login.html">LOGIN</a>
+
+</nav>
+
+
+<section class="content">
+
+    <h1 class="page-title">
+        HERBAURA Blog 🌿
+    </h1>
+
+
+    <div class="blog-container">
+
+
+        <!-- BLOG 1 -->
+
+        <div class="blog-card">
+
+            <div class="blog-icon">
+                🌿
+            </div>
+
+            <h2>
+                Benefits of Herbal Products
+            </h2>
+
+            <p>
+                Discover how herbal and Ayurvedic products
+                can become part of a simple everyday personal
+                care routine.
+            </p>
+
+            <a href="blog-herbal-products.html" class="read-more">
+                Read More
+            </a>
+
+        </div>
+
+
+        <!-- BLOG 2 -->
+
+        <div class="blog-card">
+
+            <div class="blog-icon">
+                🧴
+            </div>
+
+            <h2>
+                Simple Hair Care Tips
+            </h2>
+
+            <p>
+                Learn simple ways to care for your hair using
+                a consistent and gentle hair care routine.
+            </p>
+
+            <a href="blog-hair-care.html" class="read-more">
+                Read More
+            </a>
+
+        </div>
+
+
+        <!-- BLOG 3 -->
+
+        <div class="blog-card">
+
+            <div class="blog-icon">
+                ✨
+            </div>
+
+            <h2>
+                Everyday Skin Care
+            </h2>
+
+            <p>
+                Explore simple skin care habits and learn how
+                to maintain a comfortable everyday routine.
+            </p>
+
+            <a href="blog-skin-care.html" class="read-more">
+                Read More
+            </a>
+
+        </div>
+
+
+        <!-- BLOG 4 -->
+
+        <div class="blog-card">
+
+            <div class="blog-icon">
+                🧼
+            </div>
+
+            <h2>
+                Choosing the Right Soap
+            </h2>
+
+            <p>
+                Understand how different types of herbal soaps
+                can fit into different personal care routines.
+            </p>
+
+            <a href="blog-soap.html" class="read-more">
+                Read More
+            </a>
+
+        </div>
+
+
+        <!-- BLOG 5 -->
+
+        <div class="blog-card">
+
+            <div class="blog-icon">
+                💆
+            </div>
+
+            <h2>
+                Hair Oil Care Routine
+            </h2>
+
+            <p>
+                A simple hair oil routine can be an easy part
+                of regular hair care and self-care.
+            </p>
+
+            <a href="blog-hair-oil.html" class="read-more">
+                Read More
+            </a>
+
+        </div>
+
+
+        <!-- BLOG 6 -->
+
+        <div class="blog-card">
+
+            <div class="blog-icon">
+                🌸
+            </div>
+
+            <h2>
+                Natural Beauty Care
+            </h2>
+
+            <p>
+                Discover simple ideas for including natural
+                and herbal-inspired products in your routine.
+            </p>
+
+            <a href="blog-natural-beauty.html" class="read-more">
+                Read More
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <a href="website.html" class="back-btn">
+        ← Return Home
+    </a>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 HERBAURA. All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

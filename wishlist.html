@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>HERBAURA - My Wishlist</title>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+
+    body {
+        margin: 0;
+        background-color: #faf7f2;
+        color: #292522;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    /* HEADER */
+
+    header {
+        background-color: white;
+        padding: 20px 6%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .brand h1 {
+        margin: 0;
+        color: #4a3428;
+        font-size: 30px;
+    }
+
+
+    .brand p {
+        margin: 5px 0 0;
+        color: #6b584a;
+        font-size: 14px;
+    }
+
+
+    header button {
+        background-color: #a65d3b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+    /* NAVIGATION */
+
+    nav {
+        background-color: #4a3428;
+        padding: 14px 6%;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+
+    nav a:hover {
+        color: #ffd9c7;
+    }
+
+
+    nav input {
+        margin-left: auto;
+        width: 280px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+    }
+
+
+    /* WISHLIST */
+
+    .wishlist-section {
+        padding: 50px 6%;
+        min-height: 500px;
+        text-align: center;
+    }
+
+
+    .wishlist-section h2 {
+        color: #4a3428;
+        font-size: 32px;
+        margin-bottom: 35px;
+    }
+
+
+    .wishlist-container {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+
+    .wishlist-card {
+        position: relative;
+        width: 230px;
+        background-color: white;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        text-align: left;
+        transition: 0.3s;
+    }
+
+
+    .wishlist-card:hover {
+        transform: translateY(-5px);
+    }
+
+
+    .wishlist-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+
+    .wishlist-card h3 {
+        color: #4a3428;
+        margin: 12px 0 5px;
+    }
+
+
+    .wishlist-card p {
+        color: #6b584a;
+        font-size: 14px;
+    }
+
+
+    .wishlist-price {
+        color: #a65d3b !important;
+        font-size: 18px !important;
+        font-weight: bold;
+    }
+
+
+    .remove-btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #a65d3b;
+        color: white;
+        cursor: pointer;
+    }
+
+
+    .remove-btn:hover {
+        background-color: #4a3428;
+    }
+
+
+    /* EMPTY WISHLIST */
+
+    .empty {
+        margin: 80px auto;
+        background-color: white;
+        padding: 40px;
+        max-width: 500px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+
+    .empty h2 {
+        margin-bottom: 10px;
+    }
+
+
+    .empty p {
+        color: #6b584a;
+    }
+
+
+    .shop-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 12px 22px;
+        background-color: #a65d3b;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        background-color: #f8f1e7;
+        color: #5a4638;
+        padding: 45px 50px 20px;
+        margin-top: 40px;
+    }
+
+
+    footer h3 {
+        color: #4a3425;
+    }
+
+
+    footer a {
+        color: #6b5140;
+        text-decoration: none;
+    }
+
+
+    footer a:hover {
+        color: #a96842;
+        text-decoration: underline;
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="brand">
+
+        <h1>🌿 HERBAURA</h1>
+
+        <p>
+            Natural Ayurvedic Care
+        </p>
+
+    </div>
+
+
+    <button>
+        Contact Us
+    </button>
+
+</header>
+
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <a href="website.html">
+        HOME
+    </a>
+
+
+    <a href="deals.html">
+        DEALS
+    </a>
+
+
+    <a href="#">
+        CONTACT US
+    </a>
+
+
+    <input
+        type="text"
+        placeholder="🔍 Search for what you want..."
+    >
+
+
+    <a href="wishlist.html">
+        ♥ WISHLIST
+    </a>
+
+
+    <a href="cart.html">
+        🛒 MY CART
+    </a>
+
+
+    <a href="login.html">
+        👤 LOGIN
+    </a>
+
+</nav>
+
+
+
+<!-- WISHLIST SECTION -->
+
+<section class="wishlist-section">
+
+    <h2>
+        ♥ My Wishlist
+    </h2>
+
+
+    <div
+        class="wishlist-container"
+        id="wishlistContainer">
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        gap:40px;
+        flex-wrap:wrap;
+    ">
+
+
+        <div>
+
+            <h3>
+                Company
+            </h3>
+
+            <p>
+                <a href="about.html">
+                    About Us
+                </a>
+            </p>
+
+            <p>
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+            </p>
+
+            <p>
+                <a href="delivery.html">
+                    Delivery & Shipping
+                </a>
+            </p>
+
+            <p>
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+            </p>
+
+            <p>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </p>
+
+            <p>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <p>
+                <a href="website.html">
+                    Home
+                </a>
+            </p>
+
+            <p>
+                <a href="cart.html">
+                    My Cart
+                </a>
+            </p>
+
+            <p>
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+            </p>
+
+            <p>
+                Products
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Categories
+            </h3>
+
+            <p>Soaps</p>
+
+            <p>Shampoos</p>
+
+            <p>Hair Oils</p>
+
+            <p>Face Care</p>
+
+            <p>Body Care</p>
+
+            <p>Herbal Products</p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                ✉️ contact@herbaura.com
+            </p>
+
+            <p>
+                📍 Chennai, Tamil Nadu, India
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Herbaura Mobile App
+            </h3>
+
+            <p>
+                Download our mobile app for
+                <br>
+                easy access anytime, anywhere.
+            </p>
+
+
+            <button style="
+                padding:10px 18px;
+                border:1px solid #aaa;
+                border-radius:6px;
+                background:white;
+            ">
+                ▶ Google Play
+            </button>
+
+
+            <button style="
+                padding:10px 18px;
+                border:1px solid #aaa;
+                border-radius:6px;
+                background:white;
+            ">
+                 App Store
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <hr style="
+        margin-top:35px;
+        border:0;
+        border-top:1px solid #d8c8b8;
+    ">
+
+
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        margin-top:20px;
+    ">
+
+        <p>
+            © 2026 Herbaura. All rights reserved.
+        </p>
+
+
+        <p>
+            Follow us on
+            📘 &nbsp; 📷 &nbsp; 𝕏
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- WISHLIST JAVASCRIPT -->
+
+<script>
+
+    function showWishlist() {
+
+
+        let wishlist =
+            JSON.parse(
+                localStorage.getItem("herbauraWishlist")
+            ) || [];
+
+
+        let container =
+            document.getElementById(
+                "wishlistContainer"
+            );
+
+
+        /* EMPTY WISHLIST */
+
+        if (wishlist.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="empty">
+
+                    <h2>
+                        Your wishlist is empty 🤍
+                    </h2>
+
+                    <p>
+                        Add your favourite products
+                        by clicking the heart.
+                    </p>
+
+                    <a
+                        href="deals.html"
+                        class="shop-btn">
+
+                        Continue Shopping
+
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+
+        /* SHOW PRODUCTS */
+
+        container.innerHTML = "";
+
+
+        wishlist.forEach(function(product, index) {
+
+
+            let card =
+                document.createElement("div");
+
+
+            card.className =
+                "wishlist-card";
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+
+                <p>
+                    Natural Ayurvedic Product
+                </p>
+
+
+                <p class="wishlist-price">
+                    ₹${product.price}
+                </p>
+
+
+                <button
+                    class="remove-btn"
+                    onclick="removeProduct(${index})">
+
+                    Remove from Wishlist
+
+                </button>
+
+            `;
+
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+
+
+    /* REMOVE PRODUCT */
+
+    function removeProduct(index) {
+
+
+        let wishlist =
+            JSON.parse(
+                localStorage.getItem("herbauraWishlist")
+            ) || [];
+
+
+        wishlist.splice(index, 1);
+
+
+        localStorage.setItem(
+            "herbauraWishlist",
+            JSON.stringify(wishlist)
+        );
+
+
+        showWishlist();
+
+    }
+
+
+
+    /* LOAD WISHLIST */
+
+    showWishlist();
+
+</script>
+
+
+</body>
+
+</html>

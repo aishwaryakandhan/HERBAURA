@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>HERBAURA - Manage Account</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background-color: #faf7f2;
+        color: #292522;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+        background-color: white;
+        padding: 20px 6%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1 {
+        margin: 0;
+        color: #4a3428;
+    }
+
+    header p {
+        margin: 5px 0 0;
+        color: #6b584a;
+    }
+
+    .home-btn {
+        background-color: #a65d3b;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .home-btn:hover {
+        background-color: #4a3428;
+    }
+
+    nav {
+        background-color: #4a3428;
+        padding: 14px 6%;
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        color: #f2c7a5;
+    }
+
+    .account-container {
+        width: 450px;
+        max-width: 90%;
+        margin: 60px auto;
+        background-color: white;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+    }
+
+    .account-container h2 {
+        text-align: center;
+        color: #4a3428;
+        margin-top: 0;
+    }
+
+    .profile-icon {
+        text-align: center;
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+
+    .detail-box {
+        background-color: #faf7f2;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+    }
+
+    .detail-box label {
+        display: block;
+        color: #6b584a;
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .detail-box p {
+        margin: 0;
+        font-size: 17px;
+        font-weight: bold;
+        color: #4a3428;
+    }
+
+    .logout-btn {
+        width: 100%;
+        padding: 13px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 6px;
+        background-color: #a65d3b;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .logout-btn:hover {
+        background-color: #4a3428;
+    }
+
+    @media (max-width: 600px) {
+
+        header {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        nav {
+            justify-content: center;
+        }
+
+        .account-container {
+            margin-top: 35px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<header>
+
+    <div>
+        <h1>🌿 HERBAURA</h1>
+        <p>Natural Ayurvedic & Organic Products</p>
+    </div>
+
+    <a href="website.html" class="home-btn">
+        ← Return Home
+    </a>
+
+</header>
+
+
+<nav>
+
+    <a href="website.html">HOME</a>
+    <a href="deals.html">DEALS</a>
+    <a href="shop.html">SHOP</a>
+    <a href="contact.html">CONTACT US</a>
+    <a href="wishlist.html">❤️ WISHLIST</a>
+    <a href="cart.html">🛒 MY CART</a>
+
+</nav>
+
+
+<div class="account-container">
+
+    <div class="profile-icon">
+        👤
+    </div>
+
+    <h2>Manage Account</h2>
+
+
+    <div class="detail-box">
+
+        <label>Full Name</label>
+
+        <p id="fullName">
+            Loading...
+        </p>
+
+    </div>
+
+
+    <div class="detail-box">
+
+        <label>Username</label>
+
+        <p id="username">
+            Loading...
+        </p>
+
+    </div>
+
+
+    <div class="detail-box">
+
+        <label>Email</label>
+
+        <p id="email">
+            Loading...
+        </p>
+
+    </div>
+
+
+    <button class="logout-btn" onclick="logout()">
+        🚪 Logout
+    </button>
+
+</div>
+
+
+<script>
+
+    const loggedInUser =
+        JSON.parse(
+            localStorage.getItem("herbauraLoggedInUser")
+        );
+
+
+    // Check whether user is logged in
+
+    if (!loggedInUser) {
+
+        alert("Please login first!");
+
+        window.location.href = "login.html";
+
+    }
+
+
+    else {
+
+        document.getElementById("fullName").textContent =
+            loggedInUser.fullName;
+
+        document.getElementById("username").textContent =
+            loggedInUser.username;
+
+        document.getElementById("email").textContent =
+            loggedInUser.email;
+
+    }
+
+
+    // Logout function
+
+    function logout() {
+
+        localStorage.removeItem(
+            "herbauraLoggedInUser"
+        );
+
+        alert("Logged out successfully!");
+
+        window.location.href = "website.html";
+
+    }
+
+</script>
+
+
+</body>
+</html>

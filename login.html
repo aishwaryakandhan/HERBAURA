@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HERBAURA - Login</title>
+
+
+    <style>
+
+        body {
+
+            margin: 0;
+
+            background-color: #faf7f2;
+
+            color: #292522;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+
+        header {
+
+            background-color: white;
+
+            padding: 20px 6%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        h1 {
+
+            color: #4a3428;
+
+            margin: 0;
+
+        }
+
+
+        header p {
+
+            color: #6b584a;
+
+            margin: 5px 0 0;
+
+        }
+
+
+        .home-btn {
+
+            background-color: #a65d3b;
+
+            color: white;
+
+            padding: 10px 20px;
+
+            border-radius: 5px;
+
+            text-decoration: none;
+
+        }
+
+
+        .home-btn:hover {
+
+            background-color: #4a3428;
+
+        }
+
+
+        nav {
+
+            background-color: #4a3428;
+
+            padding: 14px 6%;
+
+            display: flex;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+        }
+
+
+        nav a:hover {
+
+            color: #f2c7a5;
+
+        }
+
+
+        .login-container {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            min-height: 75vh;
+
+        }
+
+
+        .login-box {
+
+            background-color: white;
+
+            width: 350px;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+
+        }
+
+
+        .login-box h2 {
+
+            text-align: center;
+
+            color: #4a3428;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            color: #6b584a;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 6px;
+
+            box-sizing: border-box;
+
+            font-size: 15px;
+
+        }
+
+
+        input:focus {
+
+            outline: none;
+
+            border-color: #a65d3b;
+
+        }
+
+
+        .login-btn {
+
+            width: 100%;
+
+            padding: 12px;
+
+            background-color: #a65d3b;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+        }
+
+
+        .login-btn:hover {
+
+            background-color: #8f4e32;
+
+        }
+
+
+        .login-btn:disabled {
+
+            background-color: #b9a49a;
+
+            cursor: not-allowed;
+
+        }
+
+
+        .create-account {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+        }
+
+
+        .create-account p {
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .create-account a {
+
+            color: #a65d3b;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+        }
+
+
+        .create-account a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                text-align: center;
+
+            }
+
+
+            nav {
+
+                justify-content: center;
+
+            }
+
+
+            .login-box {
+
+                width: 80%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===============================
+         HEADER
+    =============================== -->
+
+    <header>
+
+        <div>
+
+            <h1>HERBAURA</h1>
+
+            <p>
+                Natural & Ayurvedic Products
+            </p>
+
+        </div>
+
+
+        <a
+            href="website.html"
+            class="home-btn"
+        >
+
+            Return Home
+
+        </a>
+
+    </header>
+
+
+
+    <!-- ===============================
+         NAVIGATION
+    =============================== -->
+
+    <nav>
+
+        <a href="website.html">
+            HOME
+        </a>
+
+        <a href="deals.html">
+            DEALS
+        </a>
+
+        <a href="shop.html">
+            SHOP
+        </a>
+
+        <a href="contact.html">
+            CONTACT US
+        </a>
+
+        <a href="wishlist.html">
+            WISHLIST
+        </a>
+
+        <a href="cart.html">
+            MY CART
+        </a>
+
+        <a href="login.html">
+            LOGIN
+        </a>
+
+    </nav>
+
+
+
+    <!-- ===============================
+         LOGIN
+    =============================== -->
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <h2>
+                Login
+            </h2>
+
+
+            <form id="loginForm">
+
+
+                <!-- USERNAME -->
+
+                <label for="username">
+
+                    Username
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username"
+                    required
+                >
+
+
+
+                <!-- PASSWORD -->
+
+                <label for="password">
+
+                    Password
+
+                </label>
+
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-btn"
+                    id="loginBtn"
+                >
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- CREATE ACCOUNT -->
+
+            <div class="create-account">
+
+                <p>
+                    Don't have an account?
+                </p>
+
+
+                <a href="create-account.html">
+
+                    Create New Account
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===============================
+         LOGIN JAVASCRIPT
+    =============================== -->
+
+    <script>
+
+        document
+            .getElementById("loginForm")
+            .addEventListener(
+                "submit",
+                async function(event) {
+
+                    event.preventDefault();
+
+
+                    // Get username
+
+                    const username =
+                        document
+                            .getElementById("username")
+                            .value
+                            .trim();
+
+
+                    // Get password
+
+                    const password =
+                        document
+                            .getElementById("password")
+                            .value;
+
+
+                    // Login button
+
+                    const loginBtn =
+                        document
+                            .getElementById("loginBtn");
+
+
+                    // Disable button
+
+                    loginBtn.disabled = true;
+
+                    loginBtn.textContent =
+                        "Logging in...";
+
+
+                    try {
+
+
+                        // ===============================
+                        // Send Login Request
+                        // ===============================
+
+                        const response =
+                            await fetch(
+                                "http://localhost:5000/api/login",
+                                {
+
+                                    method: "POST",
+
+                                    headers: {
+
+                                        "Content-Type":
+                                            "application/json"
+
+                                    },
+
+                                    body: JSON.stringify({
+
+                                        username:
+                                            username,
+
+                                        password:
+                                            password
+
+                                    })
+
+                                }
+                            );
+
+
+                        // Get backend response
+
+                        const data =
+                            await response.json();
+
+
+                        // ===============================
+                        // LOGIN SUCCESS
+                        // ===============================
+
+                        if (response.ok) {
+
+
+                            alert(
+                                "Login successful! Welcome to HERBAURA 🌿"
+                            );
+
+
+                            // Save logged-in user
+
+                            localStorage.setItem(
+
+                                "herbauraLoggedInUser",
+
+                                JSON.stringify(
+                                    data.user
+                                )
+
+                            );
+
+
+                            // Go to home page
+
+                            window.location.href =
+                                "website.html";
+
+                        }
+
+
+                        // ===============================
+                        // LOGIN FAILED
+                        // ===============================
+
+                        else {
+
+                            alert(
+                                data.message
+                            );
+
+                        }
+
+
+                    }
+
+                    catch (error) {
+
+
+                        console.error(
+                            "Login Error:",
+                            error
+                        );
+
+
+                        alert(
+                            "Cannot connect to HERBAURA server. Make sure server.js is running."
+                        );
+
+                    }
+
+
+                    // Enable button again
+
+                    loginBtn.disabled = false;
+
+                    loginBtn.textContent =
+                        "Login";
+
+
+                }
+            );
+
+    </script>
+
+
+</body>
+
+</html>
+

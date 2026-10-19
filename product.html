@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HERBAURA - Product Details</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #faf7f2;
+    color: #292522;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+
+header {
+    background-color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand h1 {
+    margin: 0;
+    color: #4a3428;
+    font-size: 30px;
+}
+
+.brand p {
+    margin: 5px 0 0;
+    color: #6b584a;
+    font-size: 14px;
+}
+
+header button {
+    background-color: #a65d3b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* NAV */
+
+nav {
+    background-color: #4a3428;
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #ffd9c7;
+}
+
+nav input {
+    margin-left: auto;
+    width: 280px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* PRODUCT DETAILS */
+
+.product-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 6%;
+    min-height: 600px;
+}
+
+.product-image {
+    width: 400px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+}
+
+.product-info {
+    width: 450px;
+}
+
+.product-info h2 {
+    color: #4a3428;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.product-info .description {
+    color: #6b584a;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.product-price {
+    color: #a65d3b;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* BENEFITS */
+
+.benefits {
+    color: #5a4638;
+    line-height: 1.8;
+}
+
+/* QUANTITY */
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.quantity-box button {
+    width: 38px;
+    height: 38px;
+    border: none;
+    background-color: #a65d3b;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-box span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* BUTTONS */
+
+.product-btn {
+    display: flex;
+    gap: 15px;
+}
+
+.product-btn button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #a65d3b;
+    font-size: 15px;
+}
+
+.product-btn button:hover {
+    background-color: #4a3428;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #f8f1e7;
+    color: #5a4638;
+    padding: 45px 50px 20px;
+    margin-top: 40px;
+}
+
+footer h3 {
+    color: #4a3425;
+}
+
+footer a {
+    color: #6b5140;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #a96842;
+    text-decoration: underline;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .product-details {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .product-image {
+        width: 90%;
+        height: 350px;
+    }
+
+    .product-info {
+        width: 90%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="brand">
+
+        <h1>🌿 HERBAURA</h1>
+
+        <p>
+            Natural Ayurvedic Care
+        </p>
+
+    </div>
+
+    <button onclick="window.location.href='cart.html'">
+        🛒 My Cart
+    </button>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <a href="website.html">
+        HOME
+    </a>
+
+    <a href="deals.html">
+        DEALS
+    </a>
+
+    <a href="shop.html">
+        SHOP
+    </a>
+
+    <a href="#">
+        CONTACT US
+    </a>
+
+    <input
+        type="text"
+        placeholder="🔍 Search for what you want..."
+    >
+
+    <a href="wishlist.html">
+        ♥ WISHLIST
+    </a>
+
+    <a href="cart.html">
+        🛒 MY CART
+    </a>
+
+    <a href="login.html">
+        👤 LOGIN
+    </a>
+
+</nav>
+
+
+<!-- PRODUCT DETAILS -->
+
+<section class="product-details">
+
+
+    <img
+        id="productImage"
+        class="product-image"
+        src=""
+        alt="Product"
+    >
+
+
+    <div class="product-info">
+
+        <h2 id="productName">
+            Product Name
+        </h2>
+
+
+        <p
+            id="productDescription"
+            class="description">
+        </p>
+
+
+        <p
+            id="productPrice"
+            class="product-price">
+        </p>
+
+
+        <h3>
+            Benefits
+        </h3>
+
+
+        <ul
+            id="productBenefits"
+            class="benefits">
+        </ul>
+
+
+        <!-- QUANTITY -->
+
+        <div class="quantity-box">
+
+            <button onclick="decreaseQuantity()">
+                −
+            </button>
+
+            <span id="quantity">
+                1
+            </span>
+
+            <button onclick="increaseQuantity()">
+                +
+            </button>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="product-btn">
+
+            <button onclick="addProductToCart()">
+                Add to Cart 🛒
+            </button>
+
+            <button onclick="buyNow()">
+                Buy Now
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        gap:40px;
+        flex-wrap:wrap;
+    ">
+
+        <div>
+
+            <h3>Company</h3>
+
+            <p>
+                <a href="about.html">
+                    About Us
+                </a>
+            </p>
+
+            <p>
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+            </p>
+
+            <p>
+                <a href="delivery.html">
+                    Delivery & Shipping
+                </a>
+            </p>
+
+            <p>
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+            </p>
+
+            <p>
+                <a href="blog.html">
+                    Blog
+                </a>
+            </p>
+
+            <p>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <p>
+                <a href="website.html">
+                    Home
+                </a>
+            </p>
+
+            <p>
+                <a href="shop.html">
+                    Shop
+                </a>
+            </p>
+
+            <p>
+                <a href="cart.html">
+                    My Cart
+                </a>
+            </p>
+
+            <p>
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Categories</h3>
+
+            <p>Soaps</p>
+            <p>Shampoos</p>
+            <p>Hair Oils</p>
+            <p>Face Care</p>
+            <p>Body Care</p>
+            <p>Herbal Products</p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contact Us</h3>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                ✉️ contact@herbaura.com
+            </p>
+
+            <p>
+                📍 Chennai, Tamil Nadu, India
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Herbaura Mobile App</h3>
+
+            <p>
+                Download our mobile app for
+                <br>
+                easy access anytime, anywhere.
+            </p>
+
+            <button style="
+                padding:10px 18px;
+                border:1px solid #aaa;
+                border-radius:6px;
+                background:white;
+            ">
+                ▶ Google Play
+            </button>
+
+            <button style="
+                padding:10px 18px;
+                border:1px solid #aaa;
+                border-radius:6px;
+                background:white;
+            ">
+                 App Store
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <hr style="
+        margin-top:35px;
+        border:0;
+        border-top:1px solid #d8c8b8;
+    ">
+
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        margin-top:20px;
+    ">
+
+        <p>
+            © 2026 Herbaura. All rights reserved.
+        </p>
+
+        <p>
+            Follow us on
+            📘 &nbsp; 📷 &nbsp; 𝕏
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   ALL PRODUCT DATA
+========================================= */
+
+const products = {
+
+
+    /* ================= SOAPS ================= */
+
+    neemsoap: {
+        name: "Neem Herbal Soap",
+        price: "₹149",
+        image: "neemsoap.jpg/pexels-denissevillar-31517861.jpg",
+        description: "A natural neem herbal soap designed for gentle everyday cleansing and fresh-looking skin.",
+        benefits: [
+            "Natural neem herbal care",
+            "Gentle everyday cleansing",
+            "Helps keep skin fresh",
+            "Suitable for daily use"
+        ]
+    },
+
+
+    turmericsoap: {
+        name: "Turmeric Soap",
+        price: "₹159",
+        image: "turmericsoap.jpg/pexels-andrea-g-glasche-3630046-5775023.jpg",
+        description: "Turmeric herbal soap made for simple everyday cleansing and refreshing skin care.",
+        benefits: [
+            "Turmeric herbal care",
+            "Gentle cleansing",
+            "Refreshing feel",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    aloesoap: {
+        name: "Aloe Vera Soap",
+        price: "₹169",
+        image: "aloe.jpg/pexels-jibarofoto-14017562.jpg",
+        description: "Aloe Vera herbal soap designed for gentle cleansing and a fresh, clean feeling.",
+        benefits: [
+            "Aloe Vera care",
+            "Gentle on skin",
+            "Refreshing feel",
+            "Suitable for everyday use"
+        ]
+    },
+
+
+    /* ⭐ SANDALWOOD SOAP - CORRECT IMAGE PATH */
+
+    sandalwoodsoap: {
+        name: "Sandalwood Soap",
+        price: "₹179",
+        image: "sandal.jpg/pexels-the-design-lady-746806315-31830894.jpg",
+        description: "Sandalwood herbal soap created for gentle cleansing with a pleasant herbal feel.",
+        benefits: [
+            "Sandalwood herbal care",
+            "Gentle cleansing",
+            "Refreshing fragrance",
+            "Suitable for daily use"
+        ]
+    },
+
+
+    rosesoap: {
+        name: "Rose Herbal Soap",
+        price: "₹159",
+        image: "rose.jpg/pexels-sydnee-more-30355262-6936985.jpg",
+        description: "Rose herbal soap designed for gentle everyday cleansing and a refreshing skin-care experience.",
+        benefits: [
+            "Rose herbal care",
+            "Gentle cleansing",
+            "Refreshing feel",
+            "Suitable for daily use"
+        ]
+    },
+
+
+    /* ================= SHAMPOOS ================= */
+
+    "amla-shampoo": {
+        name: "Amla Herbal Shampoo",
+        price: "₹249",
+        image: "New folder/amla.jpg",
+        description: "Amla herbal shampoo designed for gentle everyday hair cleansing and herbal hair care.",
+        benefits: [
+            "Amla herbal care",
+            "Gentle hair cleansing",
+            "Helps keep hair fresh",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "neem-shampoo": {
+        name: "Neem Shampoo",
+        price: "₹269",
+        image: "New folder/neemsha.jpg",
+        description: "Neem herbal shampoo made for simple everyday hair cleansing and fresh-looking hair.",
+        benefits: [
+            "Neem herbal care",
+            "Gentle cleansing",
+            "Helps keep scalp fresh",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "aloe-shampoo": {
+        name: "Aloe Vera Shampoo",
+        price: "₹279",
+        image: "New folder/aloeshampoo.jpg",
+        description: "Aloe Vera shampoo designed for gentle hair cleansing and simple everyday hair care.",
+        benefits: [
+            "Aloe Vera care",
+            "Gentle hair cleansing",
+            "Fresh and clean feel",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "hibiscus-shampoo": {
+        name: "Hibiscus Shampoo",
+        price: "₹289",
+        image: "New folder/hibiscussha.jpg",
+        description: "Hibiscus herbal shampoo designed for gentle everyday cleansing and natural hair care.",
+        benefits: [
+            "Hibiscus herbal care",
+            "Gentle cleansing",
+            "Helps keep hair fresh",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "shikakai-shampoo": {
+        name: "Shikakai Shampoo",
+        price: "₹299",
+        image: "New folder/sikakai.jpg",
+        description: "Shikakai herbal shampoo designed for gentle cleansing and traditional herbal hair care.",
+        benefits: [
+            "Traditional shikakai care",
+            "Gentle hair cleansing",
+            "Natural herbal care",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    /* ================= HAIR OILS ================= */
+
+    "coconut-oil": {
+        name: "Coconut Hair Oil",
+        price: "₹199",
+        image: "oils.jpg/cocoil.jpg",
+        description: "Coconut hair oil designed for simple nourishing everyday hair care.",
+        benefits: [
+            "Coconut-based hair care",
+            "Nourishing feel",
+            "Helps keep hair soft",
+            "Easy for everyday use"
+        ]
+    },
+
+
+    "amla-oil": {
+        name: "Amla Hair Oil",
+        price: "₹229",
+        image: "oils.jpg/amlaoil.jpg",
+        description: "Amla hair oil inspired by traditional herbal hair care for everyday nourishment.",
+        benefits: [
+            "Amla herbal care",
+            "Nourishing hair care",
+            "Helps keep hair soft",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "bhringraj-oil": {
+        name: "Bhringraj Hair Oil",
+        price: "₹249",
+        image: "oils.jpg/bhringrajoil.jpg",
+        description: "Bhringraj herbal hair oil designed for traditional and nourishing everyday hair care.",
+        benefits: [
+            "Bhringraj herbal care",
+            "Nourishing feel",
+            "Traditional hair care",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "hibiscus-oil": {
+        name: "Hibiscus Hair Oil",
+        price: "₹259",
+        image: "oils.jpg/hibisoil.jpg",
+        description: "Hibiscus herbal hair oil designed for simple nourishing and refreshing hair care.",
+        benefits: [
+            "Hibiscus herbal care",
+            "Nourishing hair care",
+            "Helps keep hair soft",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "onion-oil": {
+        name: "Onion Hair Oil",
+        price: "₹279",
+        image: "oils.jpg/onionoil.jpg",
+        description: "Onion hair oil designed for everyday nourishing hair care with herbal ingredients.",
+        benefits: [
+            "Onion-based hair care",
+            "Nourishing feel",
+            "Helps keep hair conditioned",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    /* ================= SKIN CARE ================= */
+
+    "aloe-face-cream": {
+        name: "Aloe Vera Face Cream",
+        price: "₹299",
+        image: "facecream/aloefcre.jpg.jpeg",
+        description: "Aloe Vera face cream designed for simple everyday moisturising and skin care.",
+        benefits: [
+            "Aloe Vera care",
+            "Moisturising feel",
+            "Light and easy to apply",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "turmeric-face-cream": {
+        name: "Turmeric Face Cream",
+        price: "₹319",
+        image: "facecream/turfcre.jpg.jpeg",
+        description: "Turmeric face cream designed for everyday skin care and a fresh moisturised feel.",
+        benefits: [
+            "Turmeric herbal care",
+            "Moisturising feel",
+            "Easy to apply",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "sandalwood-cream": {
+        name: "Sandalwood Cream",
+        price: "₹329",
+        image: "facecream/sandalfcre.jpeg",
+        description: "Sandalwood cream designed for simple everyday skin care and moisturising.",
+        benefits: [
+            "Sandalwood herbal care",
+            "Moisturising feel",
+            "Refreshing skin care",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "rose-face-cream": {
+        name: "Rose Face Cream",
+        price: "₹339",
+        image: "facecream/rosefcre.jpg.jpeg",
+        description: "Rose face cream designed for everyday moisturising and a refreshing skin-care experience.",
+        benefits: [
+            "Rose herbal care",
+            "Moisturising feel",
+            "Refreshing care",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "neem-face-cream": {
+        name: "Neem Face Cream",
+        price: "₹349",
+        image: "facecream/neemfcre.jpg.jpeg",
+        description: "Neem face cream designed for simple everyday skin care and a fresh moisturised feel.",
+        benefits: [
+            "Neem herbal care",
+            "Moisturising feel",
+            "Gentle everyday care",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    /* ================= OTHER PRODUCTS ================= */
+
+    "face-wash": {
+        name: "Organic Face Wash",
+        price: "₹229",
+        image: "facecream/facewash.jpg.jpeg",
+        description: "Organic face wash designed for gentle everyday cleansing and fresh-looking skin.",
+        benefits: [
+            "Organic herbal care",
+            "Gentle cleansing",
+            "Fresh skin feel",
+            "Suitable for daily use"
+        ]
+    },
+
+
+    "body-scrub": {
+        name: "Herbal Body Scrub",
+        price: "₹299",
+        image: "facecream/bodyscrub.jpg.jpeg",
+        description: "Herbal body scrub designed for a refreshing and simple body-care routine.",
+        benefits: [
+            "Herbal body care",
+            "Refreshing feel",
+            "Easy to use",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "aloe-gel": {
+        name: "Aloe Vera Gel",
+        price: "₹249",
+        image: "facecream/aloegel.jpg.jpeg",
+        description: "Aloe Vera gel designed for simple everyday skin care and a refreshing moisturised feel.",
+        benefits: [
+            "Aloe Vera care",
+            "Refreshing feel",
+            "Moisturising care",
+            "Easy to apply"
+        ]
+    },
+
+
+    "face-pack": {
+        name: "Herbal Face Pack",
+        price: "₹199",
+        image: "facecream/facemask.jpg.jpeg",
+        description: "Herbal face pack designed for a simple refreshing skin-care routine.",
+        benefits: [
+            "Herbal skin care",
+            "Refreshing feel",
+            "Easy to apply",
+            "Suitable for regular use"
+        ]
+    },
+
+
+    "rose-water": {
+        name: "Pure Rose Water",
+        price: "₹179",
+        image: "facecream/rosewater.jpg.jpeg",
+        description: "Pure rose water designed for a refreshing and simple everyday skin-care routine.",
+        benefits: [
+            "Rose-based care",
+            "Refreshing feel",
+            "Simple everyday use",
+            "Easy to apply"
+        ]
+    }
+
+};
+
+
+
+/* GET PRODUCT ID FROM URL */
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("product");
+
+/* OLD PRODUCT ID ALIASES */
+const productAliases = {
+    "soap": "neemsoap",
+    "shampoo": "amla-shampoo",
+    "hairoil": "coconut-oil",
+    "cream": "aloe-face-cream"
+};
+
+/* FIND SELECTED PRODUCT */
+const selectedProductId = productAliases[productId] || productId;
+const product = products[selectedProductId];
+
+/* DISPLAY PRODUCT DETAILS */
+if (product) {
+    document.getElementById("productName").innerText = product.name;
+    document.getElementById("productPrice").innerText = product.price;
+    document.getElementById("productDescription").innerText =
+        product.description;
+
+    document.getElementById("productImage").src = product.image;
+    document.getElementById("productImage").alt = product.name;
+
+    let benefitsHTML = "";
+
+    product.benefits.forEach(function(benefit) {
+        benefitsHTML += "<li>" + benefit + "</li>";
+    });
+
+    document.getElementById("productBenefits").innerHTML = benefitsHTML;
+} else {
+    document.getElementById("productName").innerText =
+        "Product not found";
+
+    document.getElementById("productPrice").innerText = "";
+    document.getElementById("productDescription").innerText =
+        "Please go back to the shop and select a product.";
+
+    document.getElementById("productImage").src = "";
+    document.getElementById("productBenefits").innerHTML = "";
+}
+
+/* =========================================
+   QUANTITY
+========================================= */
+
+let quantity = 1;
+
+
+function increaseQuantity() {
+
+    quantity++;
+
+    document.getElementById("quantity").innerText =
+        quantity;
+
+}
+
+
+function decreaseQuantity() {
+
+    if (quantity > 1) {
+
+        quantity--;
+
+    }
+
+    document.getElementById("quantity").innerText =
+        quantity;
+
+}
+
+
+/* =========================================
+   ADD TO CART
+========================================= */
+
+function addProductToCart() {
+
+    let cart =
+        JSON.parse(
+            localStorage.getItem("herbauraCart")
+        ) || [];
+
+
+    let existingProduct =
+        cart.find(function(item) {
+
+            return item.name === product.name;
+
+        });
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity += quantity;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: product.name,
+
+            price: product.price,
+
+            image: product.image,
+
+            quantity: quantity
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "herbauraCart",
+        JSON.stringify(cart)
+    );
+
+
+    alert(
+        quantity + " " +
+        product.name +
+        " added to cart 🛒"
+    );
+
+}
+
+
+/* =========================================
+   BUY NOW
+========================================= */
+
+function buyNow() {
+
+    addProductToCart();
+
+    window.location.href =
+        "cart.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

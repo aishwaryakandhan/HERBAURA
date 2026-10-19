@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HERBAURA - Deals</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2;
+            color: #292522;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        /* HEADER */
+
+        header {
+            background-color: white;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            color: #4a3428;
+            margin: 0;
+        }
+
+        header p {
+            color: #6b584a;
+            margin: 5px 0 0;
+        }
+
+
+        /* NAVIGATION */
+
+        nav {
+            background-color: #4a3428;
+            padding: 14px 6%;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ffd9c7;
+        }
+
+
+        /* DEALS */
+
+        .deals {
+            padding: 50px 6%;
+            text-align: center;
+        }
+
+        .deals h2 {
+            color: #4a3428;
+            font-size: 32px;
+        }
+
+        .deals p {
+            color: #6b584a;
+        }
+
+
+        /* PRODUCT CONTAINER */
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+
+        /* PRODUCT CARD */
+
+        .product-card {
+            position: relative;
+            background-color: white;
+            width: 220px;
+            padding: 15px;
+            border-radius: 12px;
+
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.08);
+
+            text-align: left;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.18);
+        }
+
+
+        /* PRODUCT IMAGE */
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+        /* PRODUCT NAME */
+
+        .product-card h3 {
+            color: #4a3428;
+            margin: 12px 0 5px;
+        }
+
+
+        /* OLD PRICE */
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            margin: 8px 0;
+        }
+
+
+        /* OFFER PRICE */
+
+        .offer-price {
+            color: #a65d3b;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+
+        /* OFFER */
+
+        .offer {
+            color: green;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+
+        /* ADD TO CART */
+
+        .add-cart {
+            width: 100%;
+            margin-top: 5px;
+
+            background-color: #a65d3b;
+            color: white;
+
+            border: none;
+
+            padding: 10px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .add-cart:hover {
+            background-color: #4a3428;
+        }
+
+
+        /* BUY NOW */
+
+        .buy-btn {
+            width: 100%;
+
+            margin-top: 8px;
+
+            background-color: #4a3428;
+            color: white;
+
+            border: none;
+
+            padding: 10px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .buy-btn:hover {
+            background-color: #a65d3b;
+        }
+
+
+        /* WISHLIST HEART */
+
+        .heart {
+            position: absolute;
+
+            top: 12px;
+            right: 12px;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background-color: white;
+            color: #777;
+
+            font-size: 27px;
+
+            line-height: 42px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 2px 8px rgba(0,0,0,0.18);
+
+            z-index: 10;
+        }
+
+        .heart:hover {
+            transform: scale(1.1);
+        }
+
+        .heart.liked {
+            color: red;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background-color: #f8f1e7;
+            color: #5a4638;
+
+            padding: 30px 6%;
+
+            margin-top: 50px;
+
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div>
+
+        <h1>🌿 HERBAURA</h1>
+
+        <p>Natural Ayurvedic care</p>
+
+    </div>
+
+</header>
+
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <a href="website.html">HOME</a>
+
+    <a href="shop.html">SHOP</a>
+
+    <a href="deals.html">DEALS</a>
+
+    <a href="wishlist.html">♥ WISHLIST</a>
+
+    <a href="cart.html">🛒 MY CART</a>
+
+    <a href="login.html">👤 LOGIN</a>
+
+</nav>
+
+
+
+<!-- DEALS SECTION -->
+
+<section class="deals">
+
+    <h2>🔥 Today's Deals</h2>
+
+    <p>
+        Grab our special offers before they are gone!
+    </p>
+
+
+    <div class="product-container">
+
+
+        <!-- ================================= -->
+        <!-- PRODUCT 1 -->
+        <!-- ================================= -->
+
+        <div class="product-card">
+
+
+            <!-- WISHLIST -->
+
+            <button
+                class="heart"
+                data-name="Herbal Soap Combo"
+                onclick="toggleWishlist(
+                    this,
+                    'Herbal Soap Combo',
+                    'soapcombo.jpg/soapcombo.jpg',
+                    199
+                )">
+
+                ♡
+
+            </button>
+
+
+            <!-- IMAGE -->
+
+            <img
+                src="soapcombo.jpg/soapcombo.jpg"
+                alt="Herbal Soap Combo"
+            >
+
+
+            <!-- NAME -->
+
+            <h3>
+                Herbal Soap Combo
+            </h3>
+
+
+            <!-- OLD PRICE -->
+
+            <p class="old-price">
+                ₹249
+            </p>
+
+
+            <!-- OFFER PRICE -->
+
+            <p class="offer-price">
+                ₹199
+            </p>
+
+
+            <!-- OFFER -->
+
+            <p class="offer">
+                20% OFF
+            </p>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="add-cart"
+                onclick="addToCart(
+                    'Herbal Soap Combo',
+                    199,
+                    'soapcombo.jpg/soapcombo.jpg'
+                )">
+
+                🛒 Add to Cart
+
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-btn"
+                onclick="buyNow(
+                    'Herbal Soap Combo',
+                    199,
+                    'soapcombo.jpg/soapcombo.jpg'
+                )">
+
+                ⚡ Buy Now
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ================================= -->
+        <!-- PRODUCT 2 -->
+        <!-- ================================= -->
+
+        <div class="product-card">
+
+
+            <!-- WISHLIST -->
+
+            <button
+                class="heart"
+                data-name="Herbal Shampoo and Conditioner"
+                onclick="toggleWishlist(
+                    this,
+                    'Herbal Shampoo and Conditioner',
+                    'shampoocombo.jpg/shampoocombo.jpg',
+                    299
+                )">
+
+                ♡
+
+            </button>
+
+
+            <!-- IMAGE -->
+
+            <img
+                src="shampoocombo.jpg/shampoocombo.jpg"
+                alt="Herbal Shampoo and Conditioner"
+            >
+
+
+            <!-- NAME -->
+
+            <h3>
+                Herbal Shampoo and Conditioner
+            </h3>
+
+
+            <!-- OLD PRICE -->
+
+            <p class="old-price">
+                ₹399
+            </p>
+
+
+            <!-- OFFER PRICE -->
+
+            <p class="offer-price">
+                ₹299
+            </p>
+
+
+            <!-- OFFER -->
+
+            <p class="offer">
+                25% OFF
+            </p>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="add-cart"
+                onclick="addToCart(
+                    'Herbal Shampoo and Conditioner',
+                    299,
+                    'shampoocombo.jpg/shampoocombo.jpg'
+                )">
+
+                🛒 Add to Cart
+
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-btn"
+                onclick="buyNow(
+                    'Herbal Shampoo and Conditioner',
+                    299,
+                    'shampoocombo.jpg/shampoocombo.jpg'
+                )">
+
+                ⚡ Buy Now
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ================================= -->
+        <!-- PRODUCT 3 -->
+        <!-- ================================= -->
+
+        <div class="product-card">
+
+
+            <!-- WISHLIST -->
+
+            <button
+                class="heart"
+                data-name="Ayurvedic Hair Growth Serum"
+                onclick="toggleWishlist(
+                    this,
+                    'Ayurvedic Hair Growth Serum',
+                    'hairserum.jpg/pexels-gaeahealthco-30595024.jpg',
+                    349
+                )">
+
+                ♡
+
+            </button>
+
+
+            <!-- IMAGE -->
+
+            <img
+                src="hairserum.jpg/pexels-gaeahealthco-30595024.jpg"
+                alt="Ayurvedic Hair Growth Serum"
+            >
+
+
+            <!-- NAME -->
+
+            <h3>
+                Ayurvedic Hair Growth Serum
+            </h3>
+
+
+            <!-- OLD PRICE -->
+
+            <p class="old-price">
+                ₹549
+            </p>
+
+
+            <!-- OFFER PRICE -->
+
+            <p class="offer-price">
+                ₹349
+            </p>
+
+
+            <!-- OFFER -->
+
+            <p class="offer">
+                30% OFF
+            </p>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="add-cart"
+                onclick="addToCart(
+                    'Ayurvedic Hair Growth Serum',
+                    349,
+                    'hairserum.jpg/pexels-gaeahealthco-30595024.jpg'
+                )">
+
+                🛒 Add to Cart
+
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-btn"
+                onclick="buyNow(
+                    'Ayurvedic Hair Growth Serum',
+                    349,
+                    'hairserum.jpg/pexels-gaeahealthco-30595024.jpg'
+                )">
+
+                ⚡ Buy Now
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ================================= -->
+        <!-- PRODUCT 4 -->
+        <!-- ================================= -->
+
+        <div class="product-card">
+
+
+            <!-- WISHLIST -->
+
+            <button
+                class="heart"
+                data-name="Skin Care Cream"
+                onclick="toggleWishlist(
+                    this,
+                    'Skin Care Cream',
+                    'cream.jpg/pexels-betul-ustun-236006735-36375326.jpg',
+                    399
+                )">
+
+                ♡
+
+            </button>
+
+
+            <!-- IMAGE -->
+
+            <img
+                src="cream.jpg/pexels-betul-ustun-236006735-36375326.jpg"
+                alt="Skin Care Cream"
+            >
+
+
+            <!-- NAME -->
+
+            <h3>
+                Skin Care Cream
+            </h3>
+
+
+            <!-- OLD PRICE -->
+
+            <p class="old-price">
+                ₹449
+            </p>
+
+
+            <!-- OFFER PRICE -->
+
+            <p class="offer-price">
+                ₹399
+            </p>
+
+
+            <!-- OFFER -->
+
+            <p class="offer">
+                22% OFF
+            </p>
+
+
+            <!-- ADD TO CART -->
+
+            <button
+                class="add-cart"
+                onclick="addToCart(
+                    'Skin Care Cream',
+                    399,
+                    'cream.jpg/pexels-betul-ustun-236006735-36375326.jpg'
+                )">
+
+                🛒 Add to Cart
+
+            </button>
+
+
+            <!-- BUY NOW -->
+
+            <button
+                class="buy-btn"
+                onclick="buyNow(
+                    'Skin Care Cream',
+                    399,
+                    'cream.jpg/pexels-betul-ustun-236006735-36375326.jpg'
+                )">
+
+                ⚡ Buy Now
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>🌿 HERBAURA - Natural Ayurvedic Care</p>
+
+    <p>© 2026 HERBAURA. All Rights Reserved.</p>
+
+</footer>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+
+/* ==========================================
+   ADD TO CART
+========================================== */
+
+function addToCart(name, price, image) {
+
+
+    let cart =
+        JSON.parse(
+            localStorage.getItem("herbauraCart")
+        ) || [];
+
+
+    let existingProduct =
+        cart.find(function(item) {
+
+            return item.name === name;
+
+        });
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity =
+            Number(existingProduct.quantity || 0) + 1;
+
+    }
+
+    else {
+
+        cart.push({
+
+            name: name,
+
+            price: price,
+
+            image: image,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "herbauraCart",
+        JSON.stringify(cart)
+    );
+
+
+    alert(
+        name + " added to cart 🛒"
+    );
+
+}
+
+
+
+/* ==========================================
+   BUY NOW
+========================================== */
+
+function buyNow(name, price, image) {
+
+
+    let buyProduct = {
+
+        name: name,
+
+        price: price,
+
+        image: image,
+
+        quantity: 1
+
+    };
+
+
+    localStorage.setItem(
+        "herbauraBuyNow",
+        JSON.stringify(buyProduct)
+    );
+
+
+    window.location.href =
+        "checkout.html";
+
+}
+
+
+
+/* ==========================================
+   WISHLIST
+========================================== */
+
+function toggleWishlist(
+    button,
+    name,
+    image,
+    price
+) {
+
+
+    let wishlist =
+        JSON.parse(
+            localStorage.getItem(
+                "herbauraWishlist"
+            )
+        ) || [];
+
+
+    let existingProduct =
+        wishlist.find(function(product) {
+
+            return product.name === name;
+
+        });
+
+
+
+    /* REMOVE FROM WISHLIST */
+
+    if (existingProduct) {
+
+
+        wishlist =
+            wishlist.filter(function(product) {
+
+                return product.name !== name;
+
+            });
+
+
+        button.innerHTML = "♡";
+
+        button.classList.remove(
+            "liked"
+        );
+
+    }
+
+
+
+    /* ADD TO WISHLIST */
+
+    else {
+
+
+        wishlist.push({
+
+            name: name,
+
+            image: image,
+
+            price: price
+
+        });
+
+
+        button.innerHTML = "♥";
+
+        button.classList.add(
+            "liked"
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "herbauraWishlist",
+        JSON.stringify(wishlist)
+    );
+
+}
+
+
+
+/* ==========================================
+   KEEP WISHLIST HEART AFTER REFRESH
+========================================== */
+
+window.onload = function() {
+
+
+    let wishlist =
+        JSON.parse(
+            localStorage.getItem(
+                "herbauraWishlist"
+            )
+        ) || [];
+
+
+    document
+        .querySelectorAll(".heart")
+        .forEach(function(button) {
+
+
+            let productName =
+                button.getAttribute(
+                    "data-name"
+                );
+
+
+            let exists =
+                wishlist.some(function(product) {
+
+                    return product.name ===
+                           productName;
+
+                });
+
+
+            if (exists) {
+
+                button.innerHTML = "♥";
+
+                button.classList.add(
+                    "liked"
+                );
+
+            }
+
+        });
+
+};
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,757 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HERBAURA - My Cart</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #faf7f2;
+            color: #4a3428;
+        }
+
+        header {
+            background-color: #fffaf5;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eadfd3;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: #6b584a;
+            margin-top: 4px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a3428;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #a65d3b;
+        }
+
+        .title {
+            text-align: center;
+            margin: 40px 0 25px;
+        }
+
+        .title h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #6b584a;
+        }
+
+        #cartContainer {
+            width: 85%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .cart-item {
+            background-color: white;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .cart-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .cart-info {
+            flex: 1;
+        }
+
+        .cart-info h3 {
+            margin: 0 0 10px;
+            font-size: 21px;
+        }
+
+        .cart-info p {
+            margin: 6px 0;
+            color: #6b584a;
+        }
+
+        .cart-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #a65d3b !important;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .quantity-box button {
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            background-color: #a65d3b;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .quantity-box button:hover {
+            background-color: #87482e;
+        }
+
+        .quantity-number {
+            font-size: 18px;
+            font-weight: bold;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .remove-btn {
+            background-color: #6b584a;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #4a3428;
+        }
+
+        #totalBox {
+            width: 85%;
+            max-width: 900px;
+            margin: 25px auto;
+            text-align: right;
+        }
+
+        #totalBox h3 {
+            font-size: 25px;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #a65d3b;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .shop-btn:hover {
+            background-color: #87482e;
+        }
+
+        .place-order-btn {
+            display: inline-block;
+            background-color: #4a3428;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .place-order-btn:hover {
+            background-color: #a65d3b;
+        }
+
+        .empty {
+            background-color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 25px;
+            text-align: center;
+            background-color: #f8f1e7;
+            color: #5a4638;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 18px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cart-item img {
+                width: 150px;
+                height: 150px;
+            }
+
+            #totalBox {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div>
+
+            <div class="logo">
+                🌿 HERBAURA
+            </div>
+
+            <div class="tagline">
+                Natural Ayurvedic Care
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="website.html">
+                HOME
+            </a>
+
+            <a href="wishlist.html">
+                ♥ WISHLIST
+            </a>
+
+            <a href="cart.html">
+                🛒 MY CART
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- TITLE -->
+
+    <div class="title">
+
+        <h1>
+            🛒 My Cart
+        </h1>
+
+        <p>
+            Your selected Ayurvedic products
+        </p>
+
+    </div>
+
+
+
+    <!-- CART -->
+
+    <div id="cartContainer"></div>
+
+
+
+    <!-- TOTAL -->
+
+    <div id="totalBox"></div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            🌿 HERBAURA - Natural Ayurvedic Care
+        </p>
+
+        <p>
+            © 2026 HERBAURA. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <script>
+
+
+        // ==========================================
+        // SHOW CART
+        // ==========================================
+
+        function showCart() {
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem("herbauraCart")
+                ) || [];
+
+
+            let container =
+                document.getElementById("cartContainer");
+
+
+            let totalBox =
+                document.getElementById("totalBox");
+
+
+
+            // ==========================================
+            // EMPTY CART
+            // ==========================================
+
+            if (cart.length === 0) {
+
+                container.innerHTML = `
+
+                    <div class="empty">
+
+                        <h2>
+                            Your cart is empty 🛒
+                        </h2>
+
+                        <p>
+                            Add some products from our shop.
+                        </p>
+
+                        <a
+                            href="shop.html"
+                            class="shop-btn"
+                        >
+                            🛍️ Continue Shopping
+                        </a>
+
+                    </div>
+
+                `;
+
+                totalBox.innerHTML = "";
+
+                return;
+
+            }
+
+
+
+            // ==========================================
+            // CLEAR OLD CART
+            // ==========================================
+
+            container.innerHTML = "";
+
+            let total = 0;
+
+
+
+            // ==========================================
+            // SHOW PRODUCTS
+            // ==========================================
+
+            cart.forEach(function(item, index) {
+
+
+                let price =
+                    Number(
+                        String(item.price)
+                            .replace("₹", "")
+                            .replace(",", "")
+                            .trim()
+                    );
+
+
+                let quantity =
+                    Number(item.quantity) || 1;
+
+
+                let itemTotal =
+                    price * quantity;
+
+
+                total += itemTotal;
+
+
+
+                let card =
+                    document.createElement("div");
+
+
+                card.className = "cart-item";
+
+
+
+                card.innerHTML = `
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+
+                    <div class="cart-info">
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+
+                        <p>
+                            Price: ₹${price}
+                        </p>
+
+
+                        <div class="quantity-box">
+
+                            <button
+                                onclick="decreaseQuantity(${index})"
+                            >
+                                −
+                            </button>
+
+
+                            <span class="quantity-number">
+                                ${quantity}
+                            </span>
+
+
+                            <button
+                                onclick="increaseQuantity(${index})"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <p class="cart-price">
+                            ₹${itemTotal}
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="remove-btn"
+                        onclick="removeFromCart(${index})"
+                    >
+                        Remove
+                    </button>
+
+                `;
+
+
+                container.appendChild(card);
+
+            });
+
+
+
+            // ==========================================
+            // TOTAL + BUTTONS
+            // ==========================================
+
+            totalBox.innerHTML = `
+
+                <h3>
+                    Total: ₹${total}
+                </h3>
+
+
+                <button
+                    class="place-order-btn"
+                    onclick="placeOrder()"
+                >
+                    📦 Place Order
+                </button>
+
+
+                <br>
+
+
+                <a
+                    href="shop.html"
+                    class="shop-btn"
+                >
+                    🛍️ Continue Shopping
+                </a>
+
+            `;
+
+        }
+
+
+
+        // ==========================================
+        // PLACE ORDER
+        // ==========================================
+        // This will NOT place the final order.
+        // It only sends the cart to checkout.html.
+        // ==========================================
+
+        function placeOrder() {
+
+
+            // Get logged-in user
+
+            const loggedInUser =
+                JSON.parse(
+                    localStorage.getItem(
+                        "herbauraLoggedInUser"
+                    )
+                );
+
+
+            // ==========================================
+            // LOGIN CHECK
+            // ==========================================
+
+            if (!loggedInUser) {
+
+                alert(
+                    "Please login before placing an order!"
+                );
+
+                window.location.href =
+                    "login.html";
+
+                return;
+
+            }
+
+
+
+            // ==========================================
+            // GET CART
+            // ==========================================
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "herbauraCart"
+                    )
+                ) || [];
+
+
+            // ==========================================
+            // EMPTY CART CHECK
+            // ==========================================
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty!"
+                );
+
+                return;
+
+            }
+
+
+
+            // ==========================================
+            // SAVE CART FOR CHECKOUT
+            // ==========================================
+
+            localStorage.setItem(
+                "herbauraBuyNow",
+                JSON.stringify(cart)
+            );
+
+
+
+            // ==========================================
+            // GO TO CHECKOUT / BILLING PAGE
+            // ==========================================
+
+            window.location.href =
+                "checkout.html";
+
+        }
+
+
+
+        // ==========================================
+        // INCREASE QUANTITY
+        // ==========================================
+
+        function increaseQuantity(index) {
+
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "herbauraCart"
+                    )
+                ) || [];
+
+
+            cart[index].quantity =
+                (Number(
+                    cart[index].quantity
+                ) || 1) + 1;
+
+
+            localStorage.setItem(
+                "herbauraCart",
+                JSON.stringify(cart)
+            );
+
+
+            showCart();
+
+        }
+
+
+
+        // ==========================================
+        // DECREASE QUANTITY
+        // ==========================================
+
+        function decreaseQuantity(index) {
+
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "herbauraCart"
+                    )
+                ) || [];
+
+
+            let quantity =
+                Number(
+                    cart[index].quantity
+                ) || 1;
+
+
+            if (quantity > 1) {
+
+                cart[index].quantity =
+                    quantity - 1;
+
+            }
+
+            else {
+
+                cart.splice(index, 1);
+
+            }
+
+
+            localStorage.setItem(
+                "herbauraCart",
+                JSON.stringify(cart)
+            );
+
+
+            showCart();
+
+        }
+
+
+
+        // ==========================================
+        // REMOVE PRODUCT
+        // ==========================================
+
+        function removeFromCart(index) {
+
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "herbauraCart"
+                    )
+                ) || [];
+
+
+            cart.splice(index, 1);
+
+
+            localStorage.setItem(
+                "herbauraCart",
+                JSON.stringify(cart)
+            );
+
+
+            showCart();
+
+        }
+
+
+
+        // ==========================================
+        // LOAD CART
+        // ==========================================
+
+        showCart();
+
+
+    </script>
+
+
+</body>
+
+</html>
+
